@@ -4,6 +4,41 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Jumblie</title>
+		<style>
+			html {
+				font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+				font-size: 1.3em;
+				max-width: 40rem;
+				padding: 2rem;
+				margin: auto;
+				line-height: 1.5rem;
+			}
+
+			button {
+				font-size: 20px;
+				font-weight: 700;
+				padding: 10px;
+				background: #efe9e6;
+				color: #000000;
+				border: none;
+				border-radius: 5px;
+			}
+
+			.selected {
+				background: #5a534e;
+				color: #ffffff;
+			}
+		</style>
 	</head>
-	<body></body>
+	<body>
+		<div id="letterGrid"></div>
+		<button id="submit">Submit</button>
+		<div>Working word: <span id="workingWord"></span></div>
+		<ul id="wordsList"></ul>
+		<div id="message"></div>
+
+		<script src="./words/wordlist.js"></script>
+		<script src="./dailyWords.js"></script>
+		<script src="./game.js"></script>
+	</body>
 </html>
