@@ -8,7 +8,7 @@ let wordList = [
 	["shop", "bound", "august", "numbers"],
 	["rows", "muggy", "anther", "curtail"],
 	["wail", "topic", "debris", "degrees"],
-	["yell", "henry", "expand", "proline"],
+	["yell", "henry", "expand", "battery"],
 	["call", "while", "gentle", "artists"],
 	["able", "gross", "basing", "liberal"],
 	["gosh", "front", "slider", "rainbow"],
