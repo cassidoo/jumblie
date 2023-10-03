@@ -14,7 +14,10 @@ let jumbledLetters = mixLetters(wordsForTheDay.words);
 let letterGrid = document.getElementById("letterGrid");
 let workingWordDiv = document.getElementById("workingWord");
 let wordsList = document.getElementById("wordsList");
+let themeDiv = document.getElementById("theme");
 let selectedButtons = [];
+
+themeDiv.textContent = theme;
 
 jumbledLetters.forEach((letter, index) => {
 	let letterButton = document.createElement("button");
@@ -81,4 +84,8 @@ document.getElementById("submit").addEventListener("click", () => {
 	}
 
 	workingWordDiv.textContent = "";
+});
+
+document.getElementById("help").addEventListener("click", () => {
+	document.querySelector("dialog").showModal();
 });

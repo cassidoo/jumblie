@@ -5,4 +5,6 @@ let currentDate = new Date();
 let timeDifference = currentDate - startDate;
 let dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
+document.getElementById("today").textContent = currentDate.toLocaleDateString();
+
 let wordsForTheDay = wordList[dayDifference % wordList.length];

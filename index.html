@@ -4,38 +4,39 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Jumblie</title>
-		<style>
-			html {
-				font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-				font-size: 1.3em;
-				max-width: 40rem;
-				padding: 2rem;
-				margin: auto;
-				line-height: 1.5rem;
-			}
-
-			button {
-				font-size: 20px;
-				font-weight: 700;
-				padding: 10px;
-				background: #efe9e6;
-				color: #000000;
-				border: none;
-				border-radius: 5px;
-			}
-
-			.selected {
-				background: #5a534e;
-				color: #ffffff;
-			}
-		</style>
+		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
+		<div class="heading">
+			<h1>Jumblie</h1>
+			<time id="today"></time>
+			<button class="black" id="help">Help</button>
+		</div>
+
+		<dialog open>
+			<h2>How to play Jumblie</h2>
+			<p>
+				Click on the letters to spell a word. When you have a word you want to
+				submit, click the "Submit" button. If the word is valid, it will be
+				added to your found list of words. Find all four words as fast as you
+				can!
+			</p>
+			<p>If you need a hint, you can view the theme of the day.</p>
+			<form method="dialog">
+				<button class="black">Got it!</button>
+			</form>
+		</dialog>
+
 		<div id="letterGrid"></div>
-		<button id="submit">Submit</button>
+		<button class="black" id="submit">Submit</button>
 		<div>Working word: <span id="workingWord"></span></div>
 		<ul id="wordsList"></ul>
 		<div id="message"></div>
+
+		<details>
+			<summary>Theme of the day</summary>
+			<p id="theme"></p>
+		</details>
 
 		<script src="./words/wordlist.js"></script>
 		<script src="./dailyWords.js"></script>

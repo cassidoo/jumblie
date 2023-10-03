@@ -1,0 +1,65 @@
+html {
+	font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	font-size: 1.3em;
+	max-width: 40rem;
+	padding: 2rem;
+	margin: auto;
+	line-height: 1.5rem;
+}
+
+button {
+	font-size: 20px;
+	font-weight: 700;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+button.letter-button {
+	padding: 20px;
+	margin: 5px;
+	background: #efe9e6;
+	color: #000000;
+}
+
+button.black {
+	padding: 10px 30px;
+	background: #000000;
+	color: #ffffff;
+	border-radius: 40px;
+}
+
+.selected {
+	background: #5a534e;
+	color: #ffffff;
+}
+
+dialog {
+	position: absolute;
+	top: 20px;
+	background: #efe9e6;
+	border-radius: 5px;
+	padding: 20px;
+	max-width: clamp(20rem, 50vw, 40rem);
+}
+
+dialog h2 {
+	margin: 0;
+}
+
+details summary {
+	cursor: pointer;
+}
+
+details summary > * {
+	display: inline;
+}
+
+.heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #000000;
+}
