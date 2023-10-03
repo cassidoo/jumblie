@@ -1,4 +1,4 @@
-[
+let wordList = [
 	["vote", "serve", "trucks", "upscale"],
 	["fast", "point", "wooden", "general"],
 	["hang", "scale", "wounds", "militia"],
@@ -537,7 +537,7 @@
 	["agon", "level", "baking", "referee"],
 	["last", "every", "clutch", "nostril"],
 	["nods", "chair", "chalks", "council"],
-	["iglu", "frank", "casino", "mustang"],
+	["fish", "frank", "casino", "mustang"],
 	["warp", "delay", "vendor", "sundeck"],
-	["rash", "under", "sucked", "outcast"]
-]
+	["rash", "under", "sucked", "outcast"],
+];
