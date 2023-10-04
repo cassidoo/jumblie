@@ -12,11 +12,15 @@ function mixLetters(words) {
 let todaysWords = wordsForTheDay.words;
 let theme = wordsForTheDay.theme;
 let jumbledLetters = mixLetters(todaysWords);
+
 let letterGrid = document.getElementById("letterGrid");
 let workingWordDiv = document.getElementById("workingWord");
 let wordsList = document.getElementById("wordsList");
 let themeDiv = document.getElementById("theme");
+let guessesList = document.getElementById("guesses");
+
 let selectedButtons = [];
+let guessedWords = 0;
 
 themeDiv.textContent = theme;
 
@@ -46,6 +50,11 @@ jumbledLetters.forEach((letter, index) => {
 });
 
 function updateWorkingWord() {
+	const initialSpan = document.querySelector("span#initial");
+	if (initialSpan) {
+		initialSpan.remove();
+	}
+
 	let currentLetterButtons = document.querySelectorAll(".letter-button");
 	let workingWord = "";
 
@@ -65,6 +74,10 @@ jumbledLetters.forEach((letter, index) => {
 });
 
 function handleKeydown(event) {
+	if (event.key === "Enter") {
+		submitWord();
+	}
+
 	if (event.key === "Backspace") {
 		if (selectedButtons.length > 0) {
 			const index = selectedButtons.pop();
@@ -103,9 +116,12 @@ function handleKeydown(event) {
 	}
 }
 
-document.getElementById("submit").addEventListener("click", () => {
+document.getElementById("submit").addEventListener("click", submitWord);
+
+function submitWord() {
 	const workingWord = workingWordDiv.textContent;
 	const letterButtons = document.querySelectorAll(".letter-button");
+	guessedWords++;
 
 	if (todaysWords.includes(workingWord)) {
 		const wordElement = document.createElement("li");
@@ -125,6 +141,12 @@ document.getElementById("submit").addEventListener("click", () => {
 				"Yay! You found all the words!";
 		}
 	} else {
+		if (workingWord.length > 0) {
+			const guessesElement = document.createElement("li");
+			guessesElement.textContent = workingWord;
+			guessesList.appendChild(guessesElement);
+		}
+
 		selectedButtons.forEach((index) => {
 			const button = letterButtons[index];
 			button.classList.remove("selected");
@@ -134,7 +156,7 @@ document.getElementById("submit").addEventListener("click", () => {
 	}
 
 	workingWordDiv.textContent = "";
-});
+}
 
 document.getElementById("help").addEventListener("click", () => {
 	document.querySelector("dialog").showModal();

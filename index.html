@@ -33,15 +33,25 @@
 		</dialog>
 
 		<div class="game-container">
+			<div class="working-word">
+				<span id="initial">Type or click!</span>
+				<span id="workingWord"></span>
+			</div>
 			<div class="grid" id="letterGrid"></div>
-			<button class="black" id="submit">Submit</button>
-			<div>Working word: <span id="workingWord"></span></div>
+			<div class="submission">
+				<button class="black" id="submit">Submit</button>
+			</div>
 			<ul id="wordsList"></ul>
 			<div id="message"></div>
 
 			<details>
 				<summary>Theme of the day</summary>
 				<p id="theme"></p>
+			</details>
+
+			<details>
+				<summary>Guessed words</summary>
+				<ul id="guesses"></ul>
 			</details>
 		</div>
 
