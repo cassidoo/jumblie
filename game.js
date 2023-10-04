@@ -125,6 +125,9 @@ function submitWord() {
 
 	if (todaysWords.includes(workingWord)) {
 		const wordElement = document.createElement("li");
+		wordElement.classList.add(
+			`word-${wordsForTheDay.words.indexOf(workingWord)}`
+		);
 		wordElement.textContent = workingWord;
 		wordsList.appendChild(wordElement);
 

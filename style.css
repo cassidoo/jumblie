@@ -147,18 +147,18 @@ header div:last-child {
 	margin: 0 2px 5px;
 }
 
-.word-result li:nth-child(1) {
+.word-result .word-0 {
 	background: #d62828;
 }
 
-.word-result li:nth-child(2) {
+.word-result .word-1 {
 	background: #f77f00;
 }
 
-.word-result li:nth-child(3) {
+.word-result .word-2 {
 	background: #38b000;
 }
 
-.word-result li:nth-child(4) {
+.word-result .word-3 {
 	background: #02486e;
 }
