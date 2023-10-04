@@ -45,18 +45,66 @@ jumbledLetters.forEach((letter, index) => {
 });
 
 function updateWorkingWord() {
+	const letterButtons = document.querySelectorAll(".letter-button");
 	let workingWord = "";
 
 	selectedButtons.forEach((index) => {
-		const letterButton = document.querySelector(`.letter-${index}`);
-		workingWord += letterButton.textContent;
+		const button = letterButtons[index];
+		workingWord += button.textContent;
 	});
 
 	workingWordDiv.textContent = workingWord;
 }
 
+document.addEventListener("keydown", handleKeydown);
+
+const letterMap = {};
+jumbledLetters.forEach((letter, index) => {
+	letterMap[letter] = index;
+});
+
+function handleKeydown(event) {
+	if (event.key === "Backspace") {
+		if (selectedButtons.length > 0) {
+			const index = selectedButtons.pop();
+			const letterButtons = document.querySelectorAll(".letter-button");
+
+			if (letterButtons[index]) {
+				letterButtons[index].classList.remove("selected");
+			}
+
+			updateWorkingWord();
+		}
+	}
+
+	const key = event.key;
+	const letterButtons = document.querySelectorAll(".letter-button");
+
+	if (key.length === 1 && key >= "a" && key <= "z") {
+		const indexes = [];
+		letterButtons.forEach((button, index) => {
+			if (button.textContent === key) {
+				indexes.push(index);
+			}
+		});
+
+		const availableIndex = indexes.find((index) => {
+			const button = letterButtons[index];
+			return !button.classList.contains("selected");
+		});
+
+		if (availableIndex !== undefined) {
+			const button = letterButtons[availableIndex];
+			button.classList.add("selected");
+			selectedButtons.push(availableIndex);
+			updateWorkingWord();
+		}
+	}
+}
+
 document.getElementById("submit").addEventListener("click", () => {
 	const workingWord = workingWordDiv.textContent;
+	const letterButtons = document.querySelectorAll(".letter-button");
 
 	if (wordsForTheDay.words.includes(workingWord)) {
 		const wordElement = document.createElement("li");
@@ -64,20 +112,15 @@ document.getElementById("submit").addEventListener("click", () => {
 		wordsList.appendChild(wordElement);
 
 		selectedButtons.forEach((index) => {
-			const letterButton = document.querySelector(`.letter-${index}`);
-			letterButton.remove();
+			const button = letterButtons[index];
+			button.remove();
 		});
 
 		selectedButtons = [];
-
-		if (wordsList.children.length === 4) {
-			document.getElementById("message").textContent =
-				"Yay! You found all the words!";
-		}
 	} else {
 		selectedButtons.forEach((index) => {
-			const letterButton = document.querySelector(`.letter-${index}`);
-			letterButton.classList.remove("selected");
+			const button = letterButtons[index];
+			button.classList.remove("selected");
 		});
 
 		selectedButtons = [];
