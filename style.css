@@ -23,16 +23,16 @@ button.letter-button {
 	color: #000000;
 }
 
+button.letter-button.selected {
+	background: #5a534e;
+	color: #ffffff;
+}
+
 button.black {
 	padding: 10px 30px;
 	background: #000000;
 	color: #ffffff;
 	border-radius: 40px;
-}
-
-.selected {
-	background: #5a534e;
-	color: #ffffff;
 }
 
 dialog {
