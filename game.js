@@ -26,7 +26,7 @@ jumbledLetters.forEach((letter, index) => {
 	letterButton.classList.add(`letter-${index}`);
 	letterButton.addEventListener("click", (event) => {
 		const button = event.target;
-		const index = button.classList[1].split("-")[1];
+		const index = Array.from(letterGrid.children).indexOf(button);
 
 		if (selectedButtons.includes(index)) {
 			selectedButtons = selectedButtons.filter(
@@ -45,11 +45,11 @@ jumbledLetters.forEach((letter, index) => {
 });
 
 function updateWorkingWord() {
-	const letterButtons = document.querySelectorAll(".letter-button");
+	let currentLetterButtons = document.querySelectorAll(".letter-button");
 	let workingWord = "";
 
 	selectedButtons.forEach((index) => {
-		const button = letterButtons[index];
+		const button = currentLetterButtons[index];
 		workingWord += button.textContent;
 	});
 
@@ -117,6 +117,11 @@ document.getElementById("submit").addEventListener("click", () => {
 		});
 
 		selectedButtons = [];
+
+		if (wordsList.children.length === 4) {
+			document.getElementById("message").textContent =
+				"Yay! You found all the words!";
+		}
 	} else {
 		selectedButtons.forEach((index) => {
 			const button = letterButtons[index];
