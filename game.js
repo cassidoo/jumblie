@@ -9,8 +9,9 @@ function mixLetters(words) {
 	return letters;
 }
 
+let todaysWords = wordsForTheDay.words;
 let theme = wordsForTheDay.theme;
-let jumbledLetters = mixLetters(wordsForTheDay.words);
+let jumbledLetters = mixLetters(todaysWords);
 let letterGrid = document.getElementById("letterGrid");
 let workingWordDiv = document.getElementById("workingWord");
 let wordsList = document.getElementById("wordsList");
@@ -106,7 +107,7 @@ document.getElementById("submit").addEventListener("click", () => {
 	const workingWord = workingWordDiv.textContent;
 	const letterButtons = document.querySelectorAll(".letter-button");
 
-	if (wordsForTheDay.words.includes(workingWord)) {
+	if (todaysWords.includes(workingWord)) {
 		const wordElement = document.createElement("li");
 		wordElement.textContent = workingWord;
 		wordsList.appendChild(wordElement);
@@ -117,6 +118,7 @@ document.getElementById("submit").addEventListener("click", () => {
 		});
 
 		selectedButtons = [];
+		todaysWords = todaysWords.filter((word) => word !== workingWord);
 
 		if (wordsList.children.length === 4) {
 			document.getElementById("message").textContent =
