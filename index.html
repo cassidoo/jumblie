@@ -7,11 +7,16 @@
 		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
-		<div class="heading">
-			<h1>Jumblie</h1>
-			<time id="today"></time>
-			<button class="black" id="help">Help</button>
-		</div>
+		<header>
+			<div>
+				<h1>Jumblie</h1>
+				<time id="today"></time>
+			</div>
+			<div>
+				<button class="black" id="help">Help</button>
+				<div>Timer</div>
+			</div>
+		</header>
 
 		<dialog>
 			<h2>How to play Jumblie</h2>
@@ -27,16 +32,18 @@
 			</form>
 		</dialog>
 
-		<div id="letterGrid"></div>
-		<button class="black" id="submit">Submit</button>
-		<div>Working word: <span id="workingWord"></span></div>
-		<ul id="wordsList"></ul>
-		<div id="message"></div>
+		<div class="game-container">
+			<div class="grid" id="letterGrid"></div>
+			<button class="black" id="submit">Submit</button>
+			<div>Working word: <span id="workingWord"></span></div>
+			<ul id="wordsList"></ul>
+			<div id="message"></div>
 
-		<details>
-			<summary>Theme of the day</summary>
-			<p id="theme"></p>
-		</details>
+			<details>
+				<summary>Theme of the day</summary>
+				<p id="theme"></p>
+			</details>
+		</div>
 
 		<script src="./words/wordlist.js"></script>
 		<script src="./dailyWords.js"></script>

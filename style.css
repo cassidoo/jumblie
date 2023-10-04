@@ -17,6 +17,8 @@ button {
 }
 
 button.letter-button {
+	width: 60px;
+	height: 60px;
 	padding: 20px;
 	margin: 5px;
 	background: #efe9e6;
@@ -29,6 +31,7 @@ button.letter-button.selected {
 }
 
 button.black {
+	height: 40px;
 	padding: 10px 30px;
 	background: #000000;
 	color: #ffffff;
@@ -56,10 +59,25 @@ details summary > * {
 	display: inline;
 }
 
-.heading {
+header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #000000;
+}
+
+header h1 {
+	margin: 0;
+	line-height: 40px;
+}
+
+header div:last-child {
+	text-align: center;
+}
+
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
