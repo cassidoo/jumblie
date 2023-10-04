@@ -52,7 +52,7 @@ jumbledLetters.forEach((letter, index) => {
 function updateWorkingWord() {
 	const initialSpan = document.querySelector("span#initial");
 	if (initialSpan) {
-		initialSpan.remove();
+		initialSpan.textContent = "";
 	}
 
 	let currentLetterButtons = document.querySelectorAll(".letter-button");

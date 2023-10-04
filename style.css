@@ -87,11 +87,14 @@ header div:last-child {
 
 .working-word span {
 	position: relative;
-	display: inline-block;
 	height: 25px;
 }
 
-.working-word span::after {
+.working-word #initial {
+	display: inline-block;
+}
+
+.working-word #workingWord::after {
 	position: absolute;
 	top: 0;
 	right: -2px;
@@ -99,7 +102,6 @@ header div:last-child {
 	content: "";
 	width: 100%;
 	height: 100%;
-	margin-left: 5px;
 	border-right: 2px solid #efe9e6;
 	animation: 1s blink infinite;
 	box-sizing: border-box;
