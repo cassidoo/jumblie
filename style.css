@@ -32,7 +32,7 @@ button.letter-button.selected {
 
 button.black {
 	height: 40px;
-	padding: 10px 30px;
+	padding: 0 30px;
 	background: #000000;
 	color: #ffffff;
 	border-radius: 40px;
@@ -125,4 +125,40 @@ header div:last-child {
 	to {
 		opacity: 1;
 	}
+}
+
+.word-result {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	list-style-type: none;
+	width: 100%;
+	padding: 0;
+}
+
+.word-result li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 60px;
+	width: 200px;
+	border-radius: 5px;
+	color: #ffffff;
+	margin: 0 2px 5px;
+}
+
+.word-result li:nth-child(1) {
+	background: #d62828;
+}
+
+.word-result li:nth-child(2) {
+	background: #f77f00;
+}
+
+.word-result li:nth-child(3) {
+	background: #38b000;
+}
+
+.word-result li:nth-child(4) {
+	background: #02486e;
 }
