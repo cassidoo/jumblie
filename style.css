@@ -66,7 +66,7 @@ details summary > * {
 header {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-end;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #000000;
 }
@@ -76,7 +76,37 @@ header h1 {
 	line-height: 40px;
 }
 
-header div:last-child {
+header div {
+	text-align: center;
+}
+
+header .header-chunk {
+	width: 160px;
+}
+
+header .header-chunk.end {
+	display: flex;
+	justify-content: flex-end;
+}
+
+header .today-theme {
+	flex-grow: 1;
+}
+
+header .today-theme strong {
+	height: 40px;
+}
+
+header .today-theme p {
+	margin: 0;
+}
+
+header div:first-child {
+	text-align: left;
+}
+
+.mobile-theme {
+	display: none;
 	text-align: center;
 }
 
@@ -116,15 +146,6 @@ header div:last-child {
 .submission {
 	padding: 20px;
 	text-align: center;
-}
-
-@keyframes blink {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
 }
 
 .word-result {
@@ -170,4 +191,25 @@ header div:last-child {
 
 .hidden {
 	display: none;
+}
+
+@keyframes blink {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@media (max-width: 600px) {
+	html {
+		padding: 1rem;
+	}
+	header .today-theme {
+		display: none;
+	}
+	.mobile-theme {
+		display: block;
+	}
 }

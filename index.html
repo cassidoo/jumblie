@@ -8,15 +8,24 @@
 	</head>
 	<body>
 		<header>
-			<div>
+			<div class="header-chunk">
 				<h1>Jumblie</h1>
 				<time id="today"></time>
 			</div>
-			<div>
-				<button class="black" id="help">Help</button>
-				<div>Timer</div>
+			<div class="today-theme">
+				<p><strong>Today's Theme</strong></p>
+				<p id="theme"></p>
+			</div>
+			<div class="header-chunk end">
+				<div>
+					<button class="black" id="help">Help</button>
+					<div>Timer</div>
+				</div>
 			</div>
 		</header>
+		<div class="mobile-theme">
+			<p><strong>Today's Theme:</strong> <span id="mobile"></span></p>
+		</div>
 
 		<dialog>
 			<h2>How to play Jumblie</h2>
@@ -50,12 +59,7 @@
 			<ul class="word-result" id="wordsList"></ul>
 
 			<details>
-				<summary>Theme of the day</summary>
-				<p id="theme"></p>
-			</details>
-
-			<details>
-				<summary>Guessed words</summary>
+				<summary>Incorrect words</summary>
 				<ul id="guesses"></ul>
 			</details>
 		</div>

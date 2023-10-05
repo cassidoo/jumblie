@@ -17,6 +17,7 @@ let letterGrid = document.getElementById("letterGrid");
 let workingWordDiv = document.getElementById("workingWord");
 let wordsList = document.getElementById("wordsList");
 let themeDiv = document.getElementById("theme");
+let mobileThemeDiv = document.getElementById("mobile");
 let guessesList = document.getElementById("guesses");
 
 let selectedButtons = [];
@@ -24,7 +25,8 @@ let guessedWords = 0;
 
 let scoreString = `Jumblie #${puzzleNumber}\n`;
 
-themeDiv.textContent = theme;
+themeDiv.textContent = `"${theme}"`;
+mobileThemeDiv.textContent = `"${theme}"`;
 
 jumbledLetters.forEach((letter, index) => {
 	let letterButton = document.createElement("button");
@@ -188,14 +190,14 @@ function win() {
 		"Yay! You found all the words!";
 	document.getElementById("submit").remove();
 	document.getElementsByClassName("working-word")[0].remove();
-
+	document.getElementsByClassName("submission")[0].remove();
 	// make share button visible
 	shareButton.classList.remove("hidden");
 }
 
 function copyScore() {
 	navigator.clipboard.writeText(scoreString).then(() => {
-		console.log("Copied score to clipboard");
+		shareButton.textContent = "✔ Copied!";
 	});
 }
 
