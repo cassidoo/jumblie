@@ -1,15 +1,11 @@
 let wordList = [
 	{
-		theme: "space",
-		words: ["mars", "comet", "nebula", "jupiter"],
-	},
-	{
 		theme: "ocean",
 		words: ["crab", "beach", "dolphin", "seahorse"],
 	},
 	{
 		theme: "forest",
-		words: ["fern", "maple", "badger", "campfire"],
+		words: ["bear", "trail", "hiking", "campfire"],
 	},
 	{
 		theme: "desert",
@@ -17,7 +13,7 @@ let wordList = [
 	},
 	{
 		theme: "weather",
-		words: ["wind", "cloud", "typhoon", "drizzle"],
+		words: ["wind", "cloud", "sunny", "drizzle"],
 	},
 	{
 		theme: "school",
@@ -29,7 +25,7 @@ let wordList = [
 	},
 	{
 		theme: "sports",
-		words: ["puck", "sprint", "lacrosse", "football"],
+		words: ["puck", "track", "lacrosse", "football"],
 	},
 	{
 		theme: "nature",
@@ -37,7 +33,7 @@ let wordList = [
 	},
 	{
 		theme: "farm",
-		words: ["bull", "tractor", "stables", "turkey"],
+		words: ["bull", "tractor", "stables", "chicken"],
 	},
 	{
 		theme: "city",
@@ -554,6 +550,10 @@ let wordList = [
 	{
 		theme: "crafts",
 		words: ["knit", "draw", "crayon", "ceramic"],
+	},
+	{
+		theme: "space",
+		words: ["mars", "comet", "nebula", "jupiter"],
 	},
 	{
 		theme: "jewelry",

@@ -1,5 +1,5 @@
-// Date of start, gonna just say October 3, 2023 for now
-const startDate = new Date("October 3, 2023");
+// Date of start, gonna just say October 4, 2023 for now
+const startDate = new Date("October 4, 2023");
 
 let currentDate = new Date();
 let timeDifference = currentDate - startDate;
