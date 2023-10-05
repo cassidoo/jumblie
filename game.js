@@ -22,6 +22,8 @@ let guessesList = document.getElementById("guesses");
 let selectedButtons = [];
 let guessedWords = 0;
 
+let scoreString = `Jumblie #${puzzleNumber}\n`;
+
 themeDiv.textContent = theme;
 
 jumbledLetters.forEach((letter, index) => {
@@ -125,11 +127,13 @@ function submitWord() {
 
 	if (todaysWords.includes(workingWord)) {
 		const wordElement = document.createElement("li");
-		wordElement.classList.add(
-			`word-${wordsForTheDay.words.indexOf(workingWord)}`
-		);
+		const wordOrder = wordsForTheDay.words.indexOf(workingWord);
+
+		wordElement.classList.add(`word-${wordOrder}`);
 		wordElement.textContent = workingWord;
 		wordsList.appendChild(wordElement);
+
+		scoreString += `${getEmoji(wordOrder)}`;
 
 		selectedButtons.forEach((index) => {
 			const button = letterButtons[index];
@@ -140,8 +144,7 @@ function submitWord() {
 		todaysWords = todaysWords.filter((word) => word !== workingWord);
 
 		if (wordsList.children.length === 4) {
-			document.getElementById("message").textContent =
-				"Yay! You found all the words!";
+			win();
 		}
 	} else {
 		if (workingWord.length > 0) {
@@ -164,3 +167,49 @@ function submitWord() {
 document.getElementById("help").addEventListener("click", () => {
 	document.querySelector("dialog").showModal();
 });
+
+function getEmoji(index) {
+	switch (index) {
+		case 0:
+			return "🔴";
+		case 1:
+			return "🟠";
+		case 2:
+			return "🟢";
+		case 3:
+			return "🔵";
+	}
+}
+
+let shareButton = document.getElementById("share");
+
+function win() {
+	document.getElementById("message").textContent =
+		"Yay! You found all the words!";
+	document.getElementById("submit").remove();
+	document.getElementsByClassName("working-word")[0].remove();
+
+	// make share button visible
+	shareButton.classList.remove("hidden");
+}
+
+function copyScore() {
+	navigator.clipboard.writeText(scoreString).then(() => {
+		console.log("Copied score to clipboard");
+	});
+}
+
+function shareLink() {
+	if (navigator.share) {
+		navigator
+			.share({
+				title: "Jumblies",
+				text: scoreString,
+				url: "https://jumblies.com",
+			})
+			.then(() => console.log("Successful share"))
+			.catch((error) => console.log("Error sharing", error));
+	} else {
+		console.log("Share not supported");
+	}
+}

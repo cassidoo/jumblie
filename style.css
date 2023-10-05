@@ -162,3 +162,12 @@ header div:last-child {
 .word-result .word-3 {
 	background: #02486e;
 }
+
+.message {
+	font-weight: 600;
+	text-align: center;
+}
+
+.hidden {
+	display: none;
+}
