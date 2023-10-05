@@ -178,11 +178,11 @@ header div:first-child {
 
 #container {
 	display: none;
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .working-word {
-	padding: 20px;
+	padding: 0 20px 20px;
 	text-align: center;
 }
 
