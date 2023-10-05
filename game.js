@@ -24,6 +24,7 @@ let splashThemeDiv = document.getElementById("splashTheme");
 
 let selectedButtons = [];
 let guessedWords = 0;
+let wrongGuesses = 0;
 
 let scoreString = `Jumblie #${puzzleNumber}\n`;
 
@@ -164,6 +165,8 @@ function submitWord() {
 		}
 	} else {
 		if (workingWord.length > 0) {
+			wrongGuesses++;
+			document.getElementById("wrong").textContent = wrongGuesses;
 			const guessesElement = document.createElement("li");
 			guessesElement.textContent = workingWord;
 			guessesList.appendChild(guessesElement);

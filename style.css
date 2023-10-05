@@ -100,6 +100,10 @@ details summary > * {
 	display: inline;
 }
 
+details summary strong {
+	padding-left: 15px;
+}
+
 header {
 	display: flex;
 	justify-content: space-between;
@@ -219,7 +223,8 @@ header div:first-child {
 	margin: 5px;
 }
 
-.word-result {
+.word-result,
+#guesses {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -228,15 +233,25 @@ header div:first-child {
 	padding: 0;
 }
 
-.word-result li {
+.word-result li,
+#guesses li {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 60px;
-	width: 200px;
 	border-radius: 5px;
-	color: #ffffff;
 	margin: 0 2px 5px;
+}
+
+#guesses li {
+	color: #000000;
+	padding: 0 20px;
+	font-weight: 500;
+}
+
+.word-result li {
+	width: 200px;
+	color: #ffffff;
 }
 
 .word-result .word-0 {
