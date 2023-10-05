@@ -44,7 +44,7 @@ dialog {
 	background: #efe9e6;
 	border-radius: 5px;
 	padding: 20px;
-	max-width: clamp(20rem, 50vw, 40rem);
+	max-width: clamp(16rem, 50vw, 40rem);
 }
 
 dialog h2 {
@@ -53,6 +53,23 @@ dialog h2 {
 
 dialog::backdrop {
 	backdrop-filter: blur(2px);
+}
+
+dialog ul {
+	width: 80%;
+	list-style-type: none;
+	padding: 0;
+}
+
+dialog ul li {
+	position: relative;
+}
+
+dialog ul li span {
+	position: absolute;
+	top: 10px;
+	left: 30px;
+	font-size: 2.5rem;
 }
 
 details summary {
