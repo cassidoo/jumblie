@@ -33,25 +33,25 @@ jumbledLetters.forEach((letter, index) => {
 	letterButton.textContent = letter;
 	letterButton.classList.add("letter-button");
 	letterButton.classList.add(`letter-${index}`);
-	letterButton.addEventListener("click", (event) => {
-		const button = event.target;
-		const index = Array.from(letterGrid.children).indexOf(button);
-
-		if (selectedButtons.includes(index)) {
-			selectedButtons = selectedButtons.filter(
-				(btnIndex) => btnIndex !== index
-			);
-		} else {
-			selectedButtons.push(index);
-		}
-
-		button.classList.toggle("selected");
-
-		updateWorkingWord();
-	});
+	letterButton.addEventListener("click", handleButtonClick);
 
 	letterGrid.appendChild(letterButton);
 });
+
+function handleButtonClick(event) {
+	const button = event.target;
+	const index = Array.from(letterGrid.children).indexOf(button);
+
+	if (selectedButtons.includes(index)) {
+		selectedButtons = selectedButtons.filter((btnIndex) => btnIndex !== index);
+	} else {
+		selectedButtons.push(index);
+	}
+
+	button.classList.toggle("selected");
+
+	updateWorkingWord();
+}
 
 function updateWorkingWord() {
 	const initialSpan = document.querySelector("span#initial");
@@ -70,6 +70,18 @@ function updateWorkingWord() {
 	workingWordDiv.textContent = workingWord;
 }
 
+function deselectAll() {
+	const letterButtons = document.querySelectorAll(".letter-button");
+
+	letterButtons.forEach((button) => {
+		button.classList.remove("selected");
+	});
+
+	selectedButtons = [];
+
+	updateWorkingWord();
+}
+
 document.addEventListener("keydown", handleKeydown);
 
 const letterMap = {};
@@ -78,14 +90,16 @@ jumbledLetters.forEach((letter, index) => {
 });
 
 function handleKeydown(event) {
-	if (event.key === "Enter") {
+	const key = event.key;
+	let letterButtons = document.querySelectorAll(".letter-button");
+
+	if (key === "Enter") {
 		submitWord();
 	}
 
-	if (event.key === "Backspace") {
+	if (key === "Backspace") {
 		if (selectedButtons.length > 0) {
 			const index = selectedButtons.pop();
-			const letterButtons = document.querySelectorAll(".letter-button");
 
 			if (letterButtons[index]) {
 				letterButtons[index].classList.remove("selected");
@@ -94,9 +108,6 @@ function handleKeydown(event) {
 			updateWorkingWord();
 		}
 	}
-
-	const key = event.key;
-	const letterButtons = document.querySelectorAll(".letter-button");
 
 	if (key.length === 1 && key >= "a" && key <= "z") {
 		const indexes = [];
@@ -214,4 +225,29 @@ function shareLink() {
 	} else {
 		console.log("Share not supported");
 	}
+}
+
+function shuffleLetters() {
+	const currentButtons = document.querySelectorAll(".letter-button");
+	const currentLetters = [];
+
+	currentButtons.forEach((button) => {
+		currentLetters.push(button.textContent);
+		button.remove();
+	});
+
+	currentLetters.sort(() => Math.random() - 0.5);
+
+	currentLetters.forEach((letter, index) => {
+		const button = document.createElement("button");
+		button.textContent = letter;
+		button.classList.add("letter-button");
+		button.classList.add(`letter-${index}`);
+
+		button.addEventListener("click", handleButtonClick);
+		letterGrid.appendChild(button);
+	});
+
+	selectedButtons = [];
+	updateWorkingWord();
 }

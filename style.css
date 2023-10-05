@@ -35,7 +35,27 @@ button.black {
 	padding: 0 30px;
 	background: #000000;
 	color: #ffffff;
+	border: 3px solid #000000;
 	border-radius: 40px;
+}
+
+button.black:active {
+	background: #ffffff;
+	color: #000000;
+}
+
+button.white {
+	height: 40px;
+	padding: 0 30px;
+	background: #ffffff;
+	color: #000000;
+	border: 3px solid #000000;
+	border-radius: 40px;
+}
+
+button.white:active {
+	background: #000000;
+	color: #ffffff;
 }
 
 dialog {
@@ -163,6 +183,10 @@ header div:first-child {
 .submission {
 	padding: 20px;
 	text-align: center;
+}
+
+.submission button {
+	margin: 5px;
 }
 
 .word-result {
