@@ -58,6 +58,20 @@ button.white:active {
 	color: #ffffff;
 }
 
+button.pause {
+	padding: 0;
+	margin-right: 10px;
+	width: 24px;
+	height: 24px;
+	line-height: 20px;
+}
+
+.timing {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 dialog {
 	position: absolute;
 	top: 20px;
@@ -151,6 +165,10 @@ header div:first-child {
 	text-align: center;
 }
 
+.hidden-start {
+	visibility: hidden;
+}
+
 #splash {
 	display: flex;
 	flex-direction: column;
@@ -182,7 +200,7 @@ header div:first-child {
 }
 
 .working-word {
-	padding: 0 20px 20px;
+	padding: 20px;
 	text-align: center;
 }
 
@@ -309,5 +327,8 @@ footer a {
 	}
 	.mobile-theme {
 		display: block;
+	}
+	.working-word {
+		padding: 0 20px 20px;
 	}
 }

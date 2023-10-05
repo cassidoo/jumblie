@@ -2,20 +2,33 @@ const splash = document.getElementById("splash");
 const startButton = document.getElementById("start");
 const container = document.getElementById("container");
 const timer = document.getElementById("timer");
+const pauseButton = document.getElementById("pause");
 
 let timerInterval;
+let isPaused = false;
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
+let display = "00:00";
+let started = false;
 
 function startGame() {
+	started = true;
 	splash.style.display = "none";
 	container.style.display = "block";
 
-	let seconds = 0;
-	let minutes = 0;
-	let hours = 0;
+	document.getElementById("splashTitle").textContent = "Paused";
+	document.getElementById("splashTheme").style.display = "none";
 
-	let display = "00:00";
+	document
+		.querySelectorAll(".hidden-start")
+		.forEach((el) => el.classList.remove("hidden-start"));
 
-	timerInterval = setInterval(() => {
+	timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+	if (!isPaused) {
 		seconds++;
 
 		if (seconds === 60) {
@@ -35,7 +48,23 @@ function startGame() {
 			("0" + seconds).slice(-2);
 
 		timer.textContent = display;
-	}, 1000);
+	}
+}
+
+function pauseGame() {
+	clearInterval(timerInterval);
+	isPaused = true;
+	pauseButton.textContent = "⏵";
+	splash.style.display = "flex";
+	container.style.display = "none";
+}
+
+function unpauseGame() {
+	isPaused = false;
+	pauseButton.textContent = "⏸︎";
+	splash.style.display = "none";
+	container.style.display = "block";
+	timerInterval = setInterval(updateTimer, 1000);
 }
 
 function endGame() {
@@ -43,7 +72,21 @@ function endGame() {
 	return convertTime(timer.textContent);
 }
 
-startButton.addEventListener("click", startGame);
+startButton.addEventListener("click", () => {
+	if (!started) {
+		startGame();
+		startButton.textContent = "Resume";
+	} else {
+		unpauseGame();
+	}
+});
+pauseButton.addEventListener("click", () => {
+	if (isPaused) {
+		unpauseGame();
+	} else {
+		pauseGame();
+	}
+});
 
 function convertTime(timeStr) {
 	const timeComponents = timeStr.split(":");

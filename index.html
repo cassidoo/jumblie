@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Jumblie | A Word Game</title>
+		<title>Jumblie | A word search game</title>
 
 		<meta
 			name="description"
@@ -35,29 +35,29 @@
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
-			href="/assets/apple-touch-icon.png"
+			href="./assets/apple-touch-icon.png"
 		/>
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="32x32"
-			href="/assets/favicon-32x32.png"
+			href="./assets/favicon-32x32.png"
 		/>
 		<link
 			rel="icon"
 			type="image/png"
 			sizes="16x16"
-			href="/assets/favicon-16x16.png"
+			href="./assets/favicon-16x16.png"
 		/>
-		<link rel="manifest" href="/assets/site.webmanifest" />
+		<link rel="manifest" href="./assets/site.webmanifest" />
 		<link
 			rel="mask-icon"
-			href="/assets/safari-pinned-tab.svg"
+			href="./assets/safari-pinned-tab.svg"
 			color="#02486e"
 		/>
-		<link rel="shortcut icon" href="/assets/favicon.ico" />
+		<link rel="shortcut icon" href="./assets/favicon.ico" />
 		<meta name="msapplication-TileColor" content="#ffffff" />
-		<meta name="msapplication-config" content="/assets/browserconfig.xml" />
+		<meta name="msapplication-config" content="./assets/browserconfig.xml" />
 		<meta name="theme-color" content="#ffffff" />
 
 		<link rel="stylesheet" href="./style.css" />
@@ -68,14 +68,17 @@
 				<h1>Jumblie</h1>
 				<time id="today"></time>
 			</div>
-			<div class="today-theme">
+			<div class="today-theme hidden-start">
 				<p><strong>Today's Theme</strong></p>
 				<p id="theme"></p>
 			</div>
 			<div class="header-chunk end">
 				<div>
 					<button class="black" id="help">Help</button>
-					<div id="timer">00:00</div>
+					<div class="timing hidden-start">
+						<button class="pause" id="pause">&#x23f8;&#xfe0e;</button>
+						<div id="timer">00:00</div>
+					</div>
 				</div>
 			</div>
 		</header>
@@ -83,10 +86,14 @@
 		<dialog>
 			<h2>How to play Jumblie</h2>
 			<p>
-				Click on the letters to spell a word. When you have a word you want to
-				submit, click the "Submit" button. If the word is valid, it will be
-				added to your found list of words. Find all four words as fast as you
-				can!
+				There are exactly four words hidden amongst the letters, and all letters
+				are used exactly once.
+			</p>
+			<p>
+				Click on the letters (or type them on your keyboard) to spell a word.
+				When you have a word you want to submit, click the "Submit" button. If
+				the word is one of the daily words, it will be added to your found list
+				of words. Find all four words as fast as you can!
 			</p>
 			<p>Each successful word is assigned a color:</p>
 			<ul>
@@ -101,7 +108,7 @@
 		</dialog>
 
 		<div id="splash">
-			<h2>Today's Theme</h2>
+			<h2 id="splashTitle">Today's Theme</h2>
 			<h3 id="splashTheme"></h3>
 			<button class="black" id="start">Start</button>
 		</div>
