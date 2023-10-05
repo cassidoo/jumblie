@@ -95,10 +95,19 @@ jumbledLetters.forEach((letter, index) => {
 
 function handleKeydown(event) {
 	const key = event.key;
+	console.log(key);
 	let letterButtons = document.querySelectorAll(".letter-button");
 
 	if (key === "Enter") {
 		submitWord();
+	}
+
+	if (key === "Escape") {
+		deselectAll();
+	}
+
+	if (key === " ") {
+		shuffleLetters();
 	}
 
 	if (key === "Backspace") {
