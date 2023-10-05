@@ -226,7 +226,7 @@ function win() {
 
 function copyScore() {
 	navigator.clipboard.writeText(scoreString).then(() => {
-		shareButton.textContent = "✔ Copied!";
+		shareButton.textContent = "Copied!";
 	});
 }
 
