@@ -82,6 +82,7 @@ dialog {
 }
 
 dialog h2 {
+	position: relative;
 	margin: 0;
 }
 
@@ -127,8 +128,32 @@ header {
 }
 
 header h1 {
+	position: relative;
 	margin: 0;
 	line-height: 40px;
+}
+
+.brand {
+	position: relative;
+}
+
+.brand::after {
+	position: absolute;
+	top: 0;
+	right: -10px;
+	display: block;
+	content: "";
+	background-image: url("./assets/gem.png");
+	background-size: contain;
+	width: 15px;
+	height: 15px;
+	animation: rotate 20s linear infinite;
+}
+
+span.brand::after {
+	right: -8px;
+	width: 10px;
+	height: 10px;
 }
 
 header div {
@@ -315,6 +340,22 @@ footer a {
 	}
 	to {
 		opacity: 1;
+	}
+}
+
+@keyframes rotate {
+	0%,
+	100% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(90deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	75% {
+		transform: rotate(270deg);
 	}
 }
 
