@@ -204,7 +204,7 @@ let shareButton = document.getElementById("share");
 
 function win() {
 	let finalTime = endGame();
-	scoreString += `\n${guessedWords} guesses in ${finalTime}`;
+	scoreString += `\n${guessedWords} guesses in ${finalTime}\nhttps://jumblie.com`;
 
 	document.getElementById("message").textContent =
 		"Yay! You found all the words!";
@@ -225,9 +225,9 @@ function shareLink() {
 	if (navigator.share) {
 		navigator
 			.share({
-				title: "Jumblies",
+				title: "Jumblie",
 				text: scoreString,
-				url: "https://jumblies.com",
+				url: "https://jumblie.com",
 			})
 			.then(() => console.log("Successful share"))
 			.catch((error) => console.log("Error sharing", error));

@@ -279,6 +279,18 @@ header div:first-child {
 	display: none;
 }
 
+footer {
+	text-align: center;
+	padding: 20px;
+	font-size: 0.75rem;
+	line-height: 1rem;
+	color: gray;
+}
+
+footer a {
+	color: gray;
+}
+
 @keyframes blink {
 	from {
 		opacity: 0;
