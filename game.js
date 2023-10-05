@@ -16,9 +16,11 @@ let jumbledLetters = mixLetters(todaysWords);
 let letterGrid = document.getElementById("letterGrid");
 let workingWordDiv = document.getElementById("workingWord");
 let wordsList = document.getElementById("wordsList");
+let guessesList = document.getElementById("guesses");
+
 let themeDiv = document.getElementById("theme");
 let mobileThemeDiv = document.getElementById("mobile");
-let guessesList = document.getElementById("guesses");
+let splashThemeDiv = document.getElementById("splashTheme");
 
 let selectedButtons = [];
 let guessedWords = 0;
@@ -27,6 +29,7 @@ let scoreString = `Jumblie #${puzzleNumber}\n`;
 
 themeDiv.textContent = `"${theme}"`;
 mobileThemeDiv.textContent = `"${theme}"`;
+splashThemeDiv.textContent = `"${theme}"`;
 
 jumbledLetters.forEach((letter, index) => {
 	let letterButton = document.createElement("button");
@@ -197,6 +200,9 @@ function getEmoji(index) {
 let shareButton = document.getElementById("share");
 
 function win() {
+	let finalTime = endGame();
+	scoreString += `\n${guessedWords} guesses in ${finalTime}`;
+
 	document.getElementById("message").textContent =
 		"Yay! You found all the words!";
 	document.getElementById("submit").remove();

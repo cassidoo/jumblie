@@ -19,13 +19,10 @@
 			<div class="header-chunk end">
 				<div>
 					<button class="black" id="help">Help</button>
-					<div id="timer">Timer</div>
+					<div id="timer">00:00</div>
 				</div>
 			</div>
 		</header>
-		<div class="mobile-theme">
-			<p><strong>Today's Theme:</strong> <span id="mobile"></span></p>
-		</div>
 
 		<dialog>
 			<h2>How to play Jumblie</h2>
@@ -47,7 +44,16 @@
 			</form>
 		</dialog>
 
-		<div class="game-container">
+		<div id="splash">
+			<h2>Today's Theme</h2>
+			<h3 id="splashTheme"></h3>
+			<button class="black" id="start">Start</button>
+		</div>
+
+		<div id="container">
+			<div class="mobile-theme">
+				<p><strong>Today's Theme:</strong> <span id="mobile"></span></p>
+			</div>
 			<div class="working-word">
 				<span id="initial">Type or click!</span>
 				<span id="workingWord"></span>
@@ -78,6 +84,7 @@
 
 		<script src="./words/wordlist.js"></script>
 		<script src="./dailyWords.js"></script>
+		<script src="./time.js"></script>
 		<script src="./game.js"></script>
 	</body>
 </html>

@@ -2,7 +2,7 @@ html {
 	font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 	font-size: 1.3em;
 	max-width: 40rem;
-	padding: 2rem;
+	padding: 2rem 2rem 0;
 	margin: auto;
 	line-height: 1.5rem;
 }
@@ -104,7 +104,7 @@ header {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-end;
-	margin-bottom: 20px;
+	padding-bottom: 10px;
 	border-bottom: 1px solid #000000;
 }
 
@@ -145,6 +145,36 @@ header div:first-child {
 .mobile-theme {
 	display: none;
 	text-align: center;
+}
+
+#splash {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	background: #efe9e6;
+	height: calc(100vh - 10rem);
+	text-align: center;
+}
+
+#splash h2,
+#splash h3 {
+	margin: 0;
+}
+
+#splash h2 {
+	margin-bottom: 10px;
+}
+
+#splash h3 {
+	margin-bottom: 20px;
+	font-weight: 400;
+}
+
+#container {
+	display: none;
+	margin-top: 20px;
 }
 
 .working-word {
@@ -245,7 +275,7 @@ header div:first-child {
 
 @media (max-width: 600px) {
 	html {
-		padding: 1rem;
+		padding: 1rem 1rem 0;
 	}
 	header .today-theme {
 		display: none;
