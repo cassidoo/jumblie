@@ -54,14 +54,14 @@ function updateTimer() {
 function pauseGame() {
 	clearInterval(timerInterval);
 	isPaused = true;
-	pauseButton.textContent = "⏵";
+	pauseButton.innerHTML = `<img src="./assets/play.svg" alt="play" />`;
 	splash.style.display = "flex";
 	container.style.display = "none";
 }
 
 function unpauseGame() {
 	isPaused = false;
-	pauseButton.textContent = "⏸︎";
+	pauseButton.innerHTML = `<img src="./assets/pause.svg" alt="pause" />`;
 	splash.style.display = "none";
 	container.style.display = "block";
 	timerInterval = setInterval(updateTimer, 1000);
@@ -69,7 +69,7 @@ function unpauseGame() {
 
 function endGame() {
 	clearInterval(timerInterval);
-	return convertTime(timer.textContent);
+	return timer.textContent;
 }
 
 startButton.addEventListener("click", () => {
@@ -88,7 +88,7 @@ pauseButton.addEventListener("click", () => {
 	}
 });
 
-function convertTime(timeStr) {
+function convertTimeHMS(timeStr) {
 	const timeComponents = timeStr.split(":");
 
 	let hours = 0;
@@ -105,6 +105,50 @@ function convertTime(timeStr) {
 	} else {
 		return "Invalid time format";
 	}
+
+	let result = "";
+	if (hours > 0) {
+		result += hours + "h ";
+	}
+	if (minutes > 0) {
+		result += minutes + "m ";
+	}
+	if (seconds > 0) {
+		result += seconds + "s ";
+	}
+
+	return result.trim();
+}
+
+// convert the time string (hh:mm:ss or mm:ss) to milliseconds
+function convertTimeToMilliseconds(timeStr) {
+	const timeComponents = timeStr.split(":");
+
+	let hours = 0;
+	let minutes = 0;
+	let seconds = 0;
+
+	if (timeComponents.length === 3) {
+		hours = parseInt(timeComponents[0]);
+		minutes = parseInt(timeComponents[1]);
+		seconds = parseInt(timeComponents[2]);
+	} else if (timeComponents.length === 2) {
+		minutes = parseInt(timeComponents[0]);
+		seconds = parseInt(timeComponents[1]);
+	} else {
+		return "Invalid time format";
+	}
+
+	return hours * 3600000 + minutes * 60000 + seconds * 1000;
+}
+
+function convertMillisecondsToTime(milliseconds) {
+	let seconds = Math.floor(milliseconds / 1000);
+	let minutes = Math.floor(seconds / 60);
+	let hours = Math.floor(minutes / 60);
+
+	seconds = seconds % 60;
+	minutes = minutes % 60;
 
 	let result = "";
 	if (hours > 0) {
