@@ -33,7 +33,7 @@ let wordList = [
 	},
 	{
 		theme: "farm",
-		words: ["bull", "tractor", "stables", "chicken"],
+		words: ["bull", "horse", "tractor", "chicken"],
 	},
 	{
 		theme: "city",
@@ -41,11 +41,11 @@ let wordList = [
 	},
 	{
 		theme: "home",
-		words: ["yard", "couch", "kitchen", "fireplace"],
+		words: ["yard", "couch", "kitchen", "bedroom"],
 	},
 	{
 		theme: "transportation",
-		words: ["bike", "motor", "airport", "airplane"],
+		words: ["bike", "train", "truck", "airplane"],
 	},
 	{
 		theme: "technology",
@@ -56,12 +56,12 @@ let wordList = [
 		words: ["atom", "light", "gravity", "physics"],
 	},
 	{
-		theme: "history",
+		theme: "kingdom",
 		words: ["flag", "crown", "invader", "warrior"],
 	},
 	{
-		theme: "world",
-		words: ["china", "brazil", "border", "kingdom"],
+		theme: "earth",
+		words: ["land", "world", "ground", "culture"],
 	},
 	{
 		theme: "food",
@@ -137,7 +137,7 @@ let wordList = [
 	},
 	{
 		theme: "arts",
-		words: ["play", "photo", "canvas", "sculpture"],
+		words: ["play", "photo", "canvas", "gallery"],
 	},
 	{
 		theme: "warfare",
@@ -157,7 +157,7 @@ let wordList = [
 	},
 	{
 		theme: "religion",
-		words: ["pray", "faith", "belief", "scripture"],
+		words: ["pray", "faith", "belief", "doctrine"],
 	},
 	{
 		theme: "mythology",
@@ -273,7 +273,7 @@ let wordList = [
 	},
 	{
 		theme: "gardening",
-		words: ["soil", "prune", "flower", "greenhouse"],
+		words: ["soil", "prune", "flower", "harvest"],
 	},
 	{
 		theme: "pets",
@@ -293,7 +293,7 @@ let wordList = [
 	},
 	{
 		theme: "fashion",
-		words: ["sew", "style", "vintage", "wardrobe"],
+		words: ["mood", "style", "vintage", "pattern"],
 	},
 	{
 		theme: "home",
@@ -301,7 +301,7 @@ let wordList = [
 	},
 	{
 		theme: "interior design",
-		words: ["rug", "lamp", "minimal", "wallpaper"],
+		words: ["lamp", "decor", "layout", "furnish"],
 	},
 	{
 		theme: "vehicles",
@@ -333,11 +333,11 @@ let wordList = [
 	},
 	{
 		theme: "psychology",
-		words: ["ego", "anger", "trauma", "therapy"],
+		words: ["self", "anger", "mental", "therapy"],
 	},
 	{
 		theme: "philosophy",
-		words: ["ethic", "logic", "dilemma", "fallacy"],
+		words: ["idea", "logic", "mindset", "dilemma"],
 	},
 	{
 		theme: "photography",
@@ -349,15 +349,19 @@ let wordList = [
 	},
 	{
 		theme: "fantasy",
-		words: ["magic", "dragon", "castle", "kingdom"],
+		words: ["myth", "magic", "castle", "dragon"],
+	},
+	{
+		theme: "action",
+		words: ["hack", "fight", "battle", "showdown"],
 	},
 	{
 		theme: "mythology",
-		words: ["zeus", "athena", "olympus", "heracles"],
+		words: ["lore", "fairy", "legend", "olympus"],
 	},
 	{
 		theme: "exploration",
-		words: ["map", "trail", "compass", "summit"],
+		words: ["seek", "atlas", "compass", "pioneer"],
 	},
 	{
 		theme: "mystery",
@@ -365,35 +369,23 @@ let wordList = [
 	},
 	{
 		theme: "supernatural",
-		words: ["ghost", "haunt", "spooky", "psychic"],
-	},
-	{
-		theme: "horror",
-		words: ["scary", "nightmare", "eerie", "sinister"],
-	},
-	{
-		theme: "thriller",
-		words: ["danger", "suspense", "menace", "peril"],
+		words: ["lurk", "ghost", "spooky", "psychic"],
 	},
 	{
 		theme: "spy",
-		words: ["agent", "secret", "covert", "mission"],
+		words: ["mole", "secret", "covert", "mission"],
 	},
 	{
-		theme: "action",
-		words: ["chase", "fight", "battle", "showdown"],
-	},
-	{
-		theme: "western",
-		words: ["frontier", "cowboy", "desert", "ranch"],
+		theme: "old western movies",
+		words: ["town", "cowboy", "desert", "frontier"],
 	},
 	{
 		theme: "pets",
-		words: ["dog", "cat", "hamster", "goldfish"],
+		words: ["fish", "puppy", "kitten", "hamster"],
 	},
 	{
 		theme: "war",
-		words: ["soldier", "weapon", "trench", "strategy"],
+		words: ["army", "fight", "combat", "strategy"],
 	},
 	{
 		theme: "history",
@@ -401,11 +393,11 @@ let wordList = [
 	},
 	{
 		theme: "biography",
-		words: ["life", "journey", "struggle", "legacy"],
+		words: ["life", "story", "memoir", "legacy"],
 	},
 	{
 		theme: "travel",
-		words: ["trip", "luggage", "voyage", "tourist"],
+		words: ["trip", "route", "voyage", "tourist"],
 	},
 	{
 		theme: "weather",
@@ -413,7 +405,7 @@ let wordList = [
 	},
 	{
 		theme: "animals",
-		words: ["bird", "bovine", "reptile", "elephant"],
+		words: ["bird", "hippo", "reptile", "elephant"],
 	},
 	{
 		theme: "farming",
@@ -425,15 +417,15 @@ let wordList = [
 	},
 	{
 		theme: "fitness",
-		words: ["gym", "yoga", "weights", "cardio"],
+		words: ["yoga", "shape", "health", "cardio"],
 	},
 	{
 		theme: "sports",
-		words: ["game", "team", "score", "champion"],
+		words: ["team", "match", "score", "champion"],
 	},
 	{
 		theme: "art",
-		words: ["paint", "sculpt", "exhibit", "museum"],
+		words: ["draw", "paint", "sculpt", "museum"],
 	},
 	{
 		theme: "photography",
@@ -441,11 +433,11 @@ let wordList = [
 	},
 	{
 		theme: "dance",
-		words: ["ballet", "tap", "jazz", "ballroom"],
+		words: ["jazz", "salsa", "swing", "toxtrot"],
 	},
 	{
 		theme: "music",
-		words: ["note", "rhythm", "harmony", "symphony"],
+		words: ["note", "rhythm", "treble", "harmony"],
 	},
 	{
 		theme: "theater",
@@ -453,11 +445,11 @@ let wordList = [
 	},
 	{
 		theme: "literature",
-		words: ["author", "fiction", "poetry", "novel"],
+		words: ["book", "author", "poetry", "fiction"],
 	},
 	{
 		theme: "comics",
-		words: ["frame", "dialogue", "panel", "speech"],
+		words: ["joke", "humor", "manga", "cartoon"],
 	},
 	{
 		theme: "film",
@@ -469,27 +461,23 @@ let wordList = [
 	},
 	{
 		theme: "games",
-		words: ["play", "level", "score", "multiplayer"],
+		words: ["play", "level", "score", "player"],
 	},
 	{
 		theme: "toys",
-		words: ["blocks", "teddy", "dollhouse", "action"],
-	},
-	{
-		theme: "comedy",
-		words: ["humor", "joke", "prank", "punchline"],
+		words: ["doll", "teddy", "block", "football"],
 	},
 	{
 		theme: "circus",
-		words: ["clown", "juggle", "acrobat", "trapeze"],
+		words: ["show", "clown", "juggle", "trapeze"],
 	},
 	{
 		theme: "magic",
-		words: ["wizard", "spell", "potion", "wand"],
+		words: ["wand", "spell", "potion", "wizard"],
 	},
 	{
 		theme: "space",
-		words: ["milky", "rocket", "galaxy", "oxygen"],
+		words: ["star", "void", "galaxy", "oxygen"],
 	},
 	{
 		theme: "internet",
@@ -505,19 +493,19 @@ let wordList = [
 	},
 	{
 		theme: "aviation",
-		words: ["pilot", "runway", "flight", "hangar"],
+		words: ["jets", "pilot", "flight", "runway"],
 	},
 	{
 		theme: "money",
-		words: ["cash", "finance", "loan", "debt"],
+		words: ["cash", "debt", "loan", "finance"],
 	},
 	{
 		theme: "shopping",
 		words: ["mall", "sales", "outlet", "thrift"],
 	},
 	{
-		theme: "economics",
-		words: ["trade", "supply", "demand", "capital"],
+		theme: "economics and finance",
+		words: ["save", "trade", "demand", "capital"],
 	},
 	{
 		theme: "education",
@@ -533,11 +521,11 @@ let wordList = [
 	},
 	{
 		theme: "espionage",
-		words: ["cover", "agent", "secret", "government"],
+		words: ["cover", "agent", "secret", "informer"],
 	},
 	{
 		theme: "fashion",
-		words: ["style", "runway", "couture", "vintage"],
+		words: ["garb", "trend", "couture", "vintage"],
 	},
 	{
 		theme: "design",
@@ -573,7 +561,7 @@ let wordList = [
 	},
 	{
 		theme: "baking",
-		words: ["flour", "yeast", "oven", "pastry"],
+		words: ["oven", "yeast", "flour", "pastry"],
 	},
 	{
 		theme: "relationships",
@@ -585,7 +573,7 @@ let wordList = [
 	},
 	{
 		theme: "aging",
-		words: ["wisdom", "mature", "elderly", "senior"],
+		words: ["wise", "mature", "senior", "wrinkle"],
 	},
 	{
 		theme: "home",
@@ -597,11 +585,7 @@ let wordList = [
 	},
 	{
 		theme: "boating",
-		words: ["sail", "yacht", "knot", "regatta"],
-	},
-	{
-		theme: "aviation",
-		words: ["skies", "plane", "flight", "runway"],
+		words: ["sail", "yacht", "vessel", "regatta"],
 	},
 	{
 		theme: "locomotive",
@@ -613,7 +597,7 @@ let wordList = [
 	},
 	{
 		theme: "energy",
-		words: ["power", "green", "solar", "generate"],
+		words: ["push", "green", "solar", "generate"],
 	},
 	{
 		theme: "recycling",
@@ -637,15 +621,15 @@ let wordList = [
 	},
 	{
 		theme: "survival",
-		words: ["shelter", "forage", "endure", "wilderness"],
+		words: ["pack", "forage", "endure", "shelter"],
 	},
 	{
 		theme: "investing",
-		words: ["stock", "portfolio", "asset", "dividend"],
+		words: ["fund", "asset", "spend", "dividend"],
 	},
 	{
 		theme: "banking",
-		words: ["money", "loan", "mortgage", "credit"],
+		words: ["loan", "money", "credit", "mortgage"],
 	},
 	{
 		theme: "trade",
