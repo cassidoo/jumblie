@@ -245,11 +245,12 @@ let shareButton = document.getElementById("share");
 
 function win() {
 	let finalTime = endGame();
-	scoreString += `\n${guessedWords} guesses in ${convertTimeHMS(
-		finalTime
-	)}\nhttps://jumblie.com`;
+	scoreString += `\n${guessedWords} guesses in ${convertTimeHMS(finalTime)}`;
 
-	updateStreakAndFastestTimes(convertTimeToMilliseconds(finalTime));
+	updateStreakAndFastestTimes(
+		convertTimeToMilliseconds(finalTime),
+		scoreString
+	);
 
 	document.getElementById("pause").remove();
 	document.getElementById("message").textContent =
@@ -258,6 +259,31 @@ function win() {
 	document.getElementsByClassName("working-word")[0].remove();
 	document.getElementsByClassName("submission")[0].remove();
 	shareButton.classList.remove("hidden");
+	document.getElementById("jshare").classList.remove("hidden");
+}
+
+function playedToday() {
+	if (hasPlayedToday()) {
+		splash.style.display = "none";
+		container.style.display = "block";
+		scoreString = localStorage.getItem("latestScoreString");
+		shareButton.classList.remove("hidden");
+		document.getElementById("jshare").classList.remove("hidden");
+		document.getElementById("pause").remove();
+		document.getElementById("message").textContent =
+			"You found all the words today! Can't wait to play again tomorrow!";
+		document.getElementById("submit").remove();
+		document.getElementsByClassName("working-word")[0].remove();
+		document.getElementsByClassName("submission")[0].remove();
+		document.getElementById("letterGrid").remove();
+		document.getElementsByTagName("details")[0].remove();
+		wordsForTheDay.words.map((word, index) => {
+			const wordElement = document.createElement("li");
+			wordElement.textContent = word;
+			wordElement.classList.add(`word-${index}`);
+			wordsList.appendChild(wordElement);
+		});
+	}
 }
 
 function copyScore() {
@@ -305,3 +331,5 @@ function shuffleLetters() {
 	selectedButtons = [];
 	updateWorkingWord();
 }
+
+playedToday();

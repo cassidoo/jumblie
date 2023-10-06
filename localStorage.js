@@ -1,4 +1,4 @@
-function updateStreakAndFastestTimes(time) {
+function updateStreakAndFastestTimes(time, scoreString) {
 	const currentDate = new Date().toISOString().split("T")[0];
 	const lastPlayedDate = localStorage.getItem("lastPlayedDate");
 
@@ -35,4 +35,17 @@ function updateStreakAndFastestTimes(time) {
 		fastestTimes.pop();
 	}
 	localStorage.setItem("fastestTimes", JSON.stringify(fastestTimes));
+
+	localStorage.setItem("latestScoreString", scoreString);
+}
+
+function hasPlayedToday() {
+	let today = new Date().toISOString().split("T")[0];
+	let lastPlayedDate = localStorage.getItem("lastPlayedDate");
+
+	if (lastPlayedDate) {
+		if (lastPlayedDate === today) {
+			return true;
+		}
+	}
 }
