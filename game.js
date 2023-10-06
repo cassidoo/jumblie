@@ -95,7 +95,6 @@ jumbledLetters.forEach((letter, index) => {
 
 function handleKeydown(event) {
 	const key = event.key;
-	console.log(key);
 	let letterButtons = document.querySelectorAll(".letter-button");
 
 	if (key === "Enter") {
@@ -193,7 +192,40 @@ function submitWord() {
 }
 
 document.getElementById("help").addEventListener("click", () => {
-	document.querySelector("dialog").showModal();
+	document.querySelector("#helpDialog").showModal();
+});
+
+document.getElementById("stats").addEventListener("click", () => {
+	const currentStreak = localStorage.getItem("currentStreak") || 0;
+	const longestStreak = localStorage.getItem("longestStreak") || 0;
+	const totalDaysPlayed = localStorage.getItem("totalDaysPlayed") || 0;
+	const fastestTimes = JSON.parse(localStorage.getItem("fastestTimes")) || [];
+
+	const currentStreakElement = document.getElementById("currentStreak");
+	const longestStreakElement = document.getElementById("longestStreak");
+	const totalDaysPlayedElement = document.getElementById("totalDaysPlayed");
+	const fastestTimesElement = document.getElementById("fastestTimes");
+
+	currentStreakElement.textContent = `${currentStreak} days`;
+	longestStreakElement.textContent = `${longestStreak} days`;
+	totalDaysPlayedElement.textContent = `${totalDaysPlayed} games`;
+
+	fastestTimesElement.innerHTML = "";
+	fastestTimes.forEach((entry) => {
+		const tr = document.createElement("tr");
+		const tdDate = document.createElement("td");
+		const tdTime = document.createElement("td");
+
+		tdDate.textContent = `${entry.date}`;
+		tdTime.textContent = convertMillisecondsToTime(entry.time);
+
+		tr.appendChild(tdDate);
+		tr.appendChild(tdTime);
+
+		fastestTimesElement.appendChild(tr);
+	});
+
+	document.querySelector("#statsDialog").showModal();
 });
 
 function getEmoji(index) {
@@ -213,14 +245,18 @@ let shareButton = document.getElementById("share");
 
 function win() {
 	let finalTime = endGame();
-	scoreString += `\n${guessedWords} guesses in ${finalTime}\nhttps://jumblie.com`;
+	scoreString += `\n${guessedWords} guesses in ${convertTimeHMS(
+		finalTime
+	)}\nhttps://jumblie.com`;
 
+	updateStreakAndFastestTimes(convertTimeToMilliseconds(finalTime));
+
+	document.getElementById("pause").remove();
 	document.getElementById("message").textContent =
 		"Yay! You found all the words!";
 	document.getElementById("submit").remove();
 	document.getElementsByClassName("working-word")[0].remove();
 	document.getElementsByClassName("submission")[0].remove();
-	// make share button visible
 	shareButton.classList.remove("hidden");
 }
 

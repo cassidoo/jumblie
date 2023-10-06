@@ -65,8 +65,13 @@
 	<body>
 		<header>
 			<div class="header-chunk">
-				<h1 class="brand">Jumblie</h1>
-				<time id="today"></time>
+				<h1 class="brand mb2">Jumblie</h1>
+				<div class="header-subs">
+					<time id="today"></time>
+					<button class="header-icon" id="stats">
+						<img src="./assets/stats.svg" alt="stats" />
+					</button>
+				</div>
 			</div>
 			<div class="today-theme hidden-start">
 				<p><strong>Today's Theme</strong></p>
@@ -74,16 +79,18 @@
 			</div>
 			<div class="header-chunk end">
 				<div>
-					<button class="black" id="help">Help</button>
-					<div class="timing hidden-start">
-						<button class="pause" id="pause">&#x23f8;&#xfe0e;</button>
+					<button class="black mb2" id="help">Help</button>
+					<div class="header-subs hidden-start">
+						<button class="header-icon" id="pause">
+							<img src="./assets/pause.svg" alt="pause" />
+						</button>
 						<div id="timer">00:00</div>
 					</div>
 				</div>
 			</div>
 		</header>
 
-		<dialog>
+		<dialog id="helpDialog">
 			<h2>How to play <span class="brand">Jumblie</span></h2>
 			<p>
 				There are exactly four words hidden amongst the letters, and all letters
@@ -104,6 +111,28 @@
 			</ul>
 			<form method="dialog">
 				<button class="black">Got it!</button>
+			</form>
+		</dialog>
+
+		<dialog id="statsDialog">
+			<h2>Your <span class="brand">Jumblie</span> stats</h2>
+			<p>
+				<strong>Total games played:</strong> <span id="totalDaysPlayed"></span>
+			</p>
+			<p><strong>Current streak:</strong> <span id="currentStreak"></span></p>
+			<p><strong>Longest streak:</strong> <span id="longestStreak"></span></p>
+			<p><strong>Top times:</strong></p>
+			<table border="0">
+				<thead>
+					<tr>
+						<th>Date</th>
+						<th>Solve time</th>
+					</tr>
+				</thead>
+				<tbody id="fastestTimes"></tbody>
+			</table>
+			<form method="dialog">
+				<button class="black">Heck yeah</button>
 			</form>
 		</dialog>
 
@@ -148,12 +177,14 @@
 		</div>
 
 		<footer>
-			Jumblie is brought to you by <a href="https://cassidoo.co">@cassidoo</a>!
+			<span class="brand">Jumblie</span> is brought to you by
+			<a href="https://cassidoo.co">@cassidoo</a>!
 		</footer>
 
 		<script src="./words/wordlist.js"></script>
 		<script src="./dailyWords.js"></script>
 		<script src="./time.js"></script>
+		<script src="./localStorage.js"></script>
 		<script src="./game.js"></script>
 	</body>
 </html>

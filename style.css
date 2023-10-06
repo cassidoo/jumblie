@@ -17,9 +17,8 @@ button {
 }
 
 button.letter-button {
-	width: 60px;
-	height: 60px;
-	padding: 20px;
+	width: 50px;
+	height: 50px;
 	margin: 5px;
 	background: #efe9e6;
 	color: #000000;
@@ -58,15 +57,20 @@ button.white:active {
 	color: #ffffff;
 }
 
-button.pause {
-	padding: 0;
+button.header-icon {
+	padding: 2px;
 	margin-right: 10px;
 	width: 24px;
 	height: 24px;
+	background: #efe9e6;
 	line-height: 20px;
 }
 
-.timing {
+time {
+	margin-right: 10px;
+}
+
+.header-subs {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -105,6 +109,32 @@ dialog ul li span {
 	top: 10px;
 	left: 30px;
 	font-size: 2.5rem;
+}
+
+dialog#statsDialog p {
+	margin: 10px 0;
+}
+
+table {
+	width: 100%;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+table,
+th,
+td {
+	border: 1px solid #000000;
+	border-collapse: collapse;
+}
+
+table thead {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+table td {
+	width: 50%;
+	padding: 10px;
 }
 
 details summary {
@@ -152,8 +182,19 @@ header h1 {
 
 span.brand::after {
 	right: -8px;
-	width: 10px;
-	height: 10px;
+	width: 12px;
+	height: 12px;
+}
+
+footer span.brand::after {
+	top: 1px;
+	right: -3px;
+	width: 5px;
+	height: 5px;
+}
+
+.mb2 {
+	margin-bottom: 2px;
 }
 
 header div {
@@ -258,7 +299,7 @@ header div:first-child {
 }
 
 .submission {
-	padding: 20px;
+	padding: 20px 20px 0;
 	text-align: center;
 }
 
@@ -369,7 +410,13 @@ footer a {
 	.mobile-theme {
 		display: block;
 	}
+	button.letter-button {
+		margin: 2px;
+	}
 	.working-word {
 		padding: 0 20px 20px;
+	}
+	.word-result li {
+		width: 160px;
 	}
 }
