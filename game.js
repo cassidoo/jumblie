@@ -32,6 +32,10 @@ themeDiv.textContent = `"${theme}"`;
 mobileThemeDiv.textContent = `"${theme}"`;
 splashThemeDiv.textContent = `"${theme}"`;
 
+if (!navigator.share) {
+	document.getElementById("jshare").remove();
+}
+
 jumbledLetters.forEach((letter, index) => {
 	let letterButton = document.createElement("button");
 	letterButton.textContent = letter;

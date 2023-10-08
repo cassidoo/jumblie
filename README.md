@@ -1,2 +1,4 @@
-# jumblie
- A jumbled word search game
+# Jumblie
+A jumbled word search game!
+
+[Play Jumblie here!](https://jumblie.com)
