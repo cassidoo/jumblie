@@ -1,11 +1,14 @@
 function updateStreakAndFastestTimes(time, scoreString) {
-	const currentDate = new Date().toISOString().split("T")[0];
+	const currentDate = new Date();
+	let now = `${
+		currentDate.getMonth() + 1
+	}/${currentDate.getDate()}/${currentDate.getFullYear()}`;
 	const lastPlayedDate = localStorage.getItem("lastPlayedDate");
 
 	if (lastPlayedDate) {
 		const lastDate = new Date(lastPlayedDate);
 		lastDate.setDate(lastDate.getDate() + 1);
-		const yesterday = new Date(currentDate);
+		const yesterday = new Date(now);
 		yesterday.setDate(yesterday.getDate() - 1);
 
 		if (lastDate.getTime() !== yesterday.getTime()) {
@@ -13,7 +16,7 @@ function updateStreakAndFastestTimes(time, scoreString) {
 		}
 	}
 
-	localStorage.setItem("lastPlayedDate", currentDate);
+	localStorage.setItem("lastPlayedDate", now);
 
 	let currentStreak = parseInt(localStorage.getItem("currentStreak")) || 0;
 	currentStreak++;
@@ -29,7 +32,7 @@ function updateStreakAndFastestTimes(time, scoreString) {
 	localStorage.setItem("totalDaysPlayed", totalDaysPlayed);
 
 	let fastestTimes = JSON.parse(localStorage.getItem("fastestTimes")) || [];
-	fastestTimes.push({ time, date: currentDate });
+	fastestTimes.push({ time, date: now });
 	fastestTimes.sort((a, b) => a.time - b.time);
 	if (fastestTimes.length > 3) {
 		fastestTimes.pop();
@@ -40,12 +43,9 @@ function updateStreakAndFastestTimes(time, scoreString) {
 }
 
 function hasPlayedToday() {
-	let today = new Date().toISOString().split("T")[0];
+	let today = new Date();
+	let now = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
 	let lastPlayedDate = localStorage.getItem("lastPlayedDate");
 
-	if (lastPlayedDate) {
-		if (lastPlayedDate === today) {
-			return true;
-		}
-	}
+	return lastPlayedDate === now;
 }

@@ -1,14 +1,3 @@
-function mixLetters(words) {
-	let letters = words.join("").split("");
-	for (let i = letters.length - 1; i >= 0; i--) {
-		let randomIndex = Math.floor(Math.random() * (i + 1));
-		let temp = letters[i];
-		letters[i] = letters[randomIndex];
-		letters[randomIndex] = temp;
-	}
-	return letters;
-}
-
 let todaysWords = wordsForTheDay.words;
 let theme = wordsForTheDay.theme;
 let jumbledLetters = mixLetters(todaysWords);
@@ -21,6 +10,8 @@ let guessesList = document.getElementById("guesses");
 let themeDiv = document.getElementById("theme");
 let mobileThemeDiv = document.getElementById("mobile");
 let splashThemeDiv = document.getElementById("splashTheme");
+let shareButton = document.getElementById("share");
+let submitButton = document.getElementById("submit");
 
 let selectedButtons = [];
 let guessedWords = 0;
@@ -28,14 +19,33 @@ let wrongGuesses = 0;
 
 let scoreString = `Jumblie #${puzzleNumber}\n`;
 
-themeDiv.textContent = `"${theme}"`;
-mobileThemeDiv.textContent = `"${theme}"`;
-splashThemeDiv.textContent = `"${theme}"`;
+(function () {
+	if (!navigator.share) {
+		document.getElementById("jshare").remove();
+	}
 
-if (!navigator.share) {
-	document.getElementById("jshare").remove();
+	playedToday();
+
+	document.addEventListener("keydown", handleKeydown);
+	submitButton.addEventListener("click", submitWord);
+
+	themeDiv.textContent = `"${theme}"`;
+	mobileThemeDiv.textContent = `"${theme}"`;
+	splashThemeDiv.textContent = `"${theme}"`;
+})();
+
+function mixLetters(words) {
+	let letters = words.join("").split("");
+	for (let i = letters.length - 1; i >= 0; i--) {
+		let randomIndex = Math.floor(Math.random() * (i + 1));
+		let temp = letters[i];
+		letters[i] = letters[randomIndex];
+		letters[randomIndex] = temp;
+	}
+	return letters;
 }
 
+const letterMap = {};
 jumbledLetters.forEach((letter, index) => {
 	let letterButton = document.createElement("button");
 	letterButton.textContent = letter;
@@ -44,6 +54,8 @@ jumbledLetters.forEach((letter, index) => {
 	letterButton.addEventListener("click", handleButtonClick);
 
 	letterGrid.appendChild(letterButton);
+
+	letterMap[letter] = index;
 });
 
 function handleButtonClick(event) {
@@ -89,13 +101,6 @@ function deselectAll() {
 
 	updateWorkingWord();
 }
-
-document.addEventListener("keydown", handleKeydown);
-
-const letterMap = {};
-jumbledLetters.forEach((letter, index) => {
-	letterMap[letter] = index;
-});
 
 function handleKeydown(event) {
 	const key = event.key;
@@ -146,8 +151,6 @@ function handleKeydown(event) {
 		}
 	}
 }
-
-document.getElementById("submit").addEventListener("click", submitWord);
 
 function submitWord() {
 	const workingWord = workingWordDiv.textContent;
@@ -245,8 +248,6 @@ function getEmoji(index) {
 	}
 }
 
-let shareButton = document.getElementById("share");
-
 function win() {
 	let finalTime = endGame();
 	scoreString += `\n${guessedWords} guesses in ${convertTimeHMS(finalTime)}`;
@@ -335,5 +336,3 @@ function shuffleLetters() {
 	selectedButtons = [];
 	updateWorkingWord();
 }
-
-playedToday();
