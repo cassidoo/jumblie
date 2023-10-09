@@ -12,6 +12,7 @@ let mobileThemeDiv = document.getElementById("mobile");
 let splashThemeDiv = document.getElementById("splashTheme");
 let shareButton = document.getElementById("share");
 let submitButton = document.getElementById("submit");
+let jShareButton = document.getElementById("jshare");
 
 let selectedButtons = [];
 let guessedWords = 0;
@@ -21,7 +22,7 @@ let scoreString = `Jumblie #${puzzleNumber}\n`;
 
 (function () {
 	if (!navigator.share) {
-		document.getElementById("jshare").remove();
+		jShareButton.remove();
 	}
 
 	playedToday();
@@ -32,6 +33,10 @@ let scoreString = `Jumblie #${puzzleNumber}\n`;
 	themeDiv.textContent = `"${theme}"`;
 	mobileThemeDiv.textContent = `"${theme}"`;
 	splashThemeDiv.textContent = `"${theme}"`;
+
+	document.getElementById("help").addEventListener("click", () => {
+		document.querySelector("#helpDialog").showModal();
+	});
 })();
 
 function mixLetters(words) {
@@ -198,10 +203,6 @@ function submitWord() {
 	workingWordDiv.textContent = "";
 }
 
-document.getElementById("help").addEventListener("click", () => {
-	document.querySelector("#helpDialog").showModal();
-});
-
 document.getElementById("stats").addEventListener("click", () => {
 	const currentStreak = localStorage.getItem("currentStreak") || 0;
 	const longestStreak = localStorage.getItem("longestStreak") || 0;
@@ -264,7 +265,9 @@ function win() {
 	document.getElementsByClassName("working-word")[0].remove();
 	document.getElementsByClassName("submission")[0].remove();
 	shareButton.classList.remove("hidden");
-	document.getElementById("jshare").classList.remove("hidden");
+	if (jShareButton) {
+		jShareButton?.classList.remove("hidden");
+	}
 }
 
 function playedToday() {
@@ -273,7 +276,6 @@ function playedToday() {
 		container.style.display = "block";
 		scoreString = localStorage.getItem("latestScoreString");
 		shareButton.classList.remove("hidden");
-		document.getElementById("jshare").classList.remove("hidden");
 		document.getElementById("pause").remove();
 		document.getElementById("message").textContent =
 			"You found all the words today! Can't wait to play again tomorrow!";
@@ -288,6 +290,9 @@ function playedToday() {
 			wordElement.classList.add(`word-${index}`);
 			wordsList.appendChild(wordElement);
 		});
+		if (jShareButton) {
+			jShareButton?.classList.remove("hidden");
+		}
 	}
 }
 
