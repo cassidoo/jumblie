@@ -251,7 +251,7 @@ function getEmoji(index) {
 
 function win() {
 	let finalTime = endGame();
-	scoreString += `\n${guessedWords} guesses in ${convertTimeHMS(finalTime)}`;
+	scoreString += `\n${guessedWords} guesses in ${convertTimeHMS(finalTime)}\nhttps://jumblie.com`;
 
 	updateStreakAndFastestTimes(
 		convertTimeToMilliseconds(finalTime),
