@@ -377,6 +377,11 @@ header div:first-child {
 	display: none;
 }
 
+.shake {
+	position: relative;
+	animation: shakeLeftRight 0.2s linear infinite;
+}
+
 footer {
 	text-align: center;
 	padding: 20px;
@@ -411,6 +416,22 @@ footer a {
 	}
 	75% {
 		transform: rotate(270deg);
+	}
+}
+
+@keyframes shakeLeftRight {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(-5px);
+	}
+	50% {
+		transform: translateX(0);
+	}
+	75% {
+		transform: translateX(5px);
 	}
 }
 

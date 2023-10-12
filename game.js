@@ -160,7 +160,10 @@ function handleKeydown(event) {
 function submitWord() {
 	const workingWord = workingWordDiv.textContent;
 	const letterButtons = document.querySelectorAll(".letter-button");
-	guessedWords++;
+
+	if (workingWord.length !== 0) {
+		guessedWords++;
+	}
 
 	if (todaysWords.includes(workingWord)) {
 		const wordElement = document.createElement("li");
@@ -180,12 +183,23 @@ function submitWord() {
 		selectedButtons = [];
 		todaysWords = todaysWords.filter((word) => word !== workingWord);
 
+		workingWordDiv.textContent = "";
+
 		if (wordsList.children.length === 4) {
 			win();
 		}
 	} else {
 		if (workingWord.length > 0) {
 			wrongGuesses++;
+
+			document.getElementsByClassName("working-word")[0].classList.add("shake");
+			setTimeout(() => {
+				document
+					.getElementsByClassName("working-word")[0]
+					.classList.remove("shake");
+				workingWordDiv.textContent = "";
+			}, 400);
+
 			document.getElementById("wrong").textContent = wrongGuesses;
 			const guessesElement = document.createElement("li");
 			guessesElement.textContent = workingWord;
@@ -199,8 +213,6 @@ function submitWord() {
 
 		selectedButtons = [];
 	}
-
-	workingWordDiv.textContent = "";
 }
 
 document.getElementById("stats").addEventListener("click", () => {
@@ -251,7 +263,9 @@ function getEmoji(index) {
 
 function win() {
 	let finalTime = endGame();
-	scoreString += `\n${guessedWords} guesses in ${convertTimeHMS(finalTime)}\nhttps://jumblie.com`;
+	scoreString += `\n${guessedWords} guesses in ${convertTimeHMS(
+		finalTime
+	)}\nhttps://jumblie.com`;
 
 	updateStreakAndFastestTimes(
 		convertTimeToMilliseconds(finalTime),
