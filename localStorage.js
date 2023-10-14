@@ -5,22 +5,25 @@ function updateStreakAndFastestTimes(time, scoreString) {
 	}/${currentDate.getDate()}/${currentDate.getFullYear()}`;
 	const lastPlayedDate = localStorage.getItem("lastPlayedDate");
 
-	if (lastPlayedDate) {
+	if (lastPlayedDate !== now) {
 		const lastDate = new Date(lastPlayedDate);
-		lastDate.setDate(lastDate.getDate() + 1);
-		const yesterday = new Date(now);
-		yesterday.setDate(yesterday.getDate() - 1);
+		const lastTime = lastDate.getTime();
+		const currentTime = new Date(now).getTime();
 
-		if (lastDate.getTime() !== yesterday.getTime()) {
+		const dayDifference = Math.floor(
+			(currentTime - lastTime) / (1000 * 60 * 60 * 24)
+		);
+
+		if (dayDifference === 1) {
+			let currentStreak = parseInt(localStorage.getItem("currentStreak")) || 0;
+			currentStreak++;
+			localStorage.setItem("currentStreak", currentStreak);
+		} else {
 			localStorage.setItem("currentStreak", "1");
 		}
 	}
 
 	localStorage.setItem("lastPlayedDate", now);
-
-	let currentStreak = parseInt(localStorage.getItem("currentStreak")) || 0;
-	currentStreak++;
-	localStorage.setItem("currentStreak", currentStreak);
 
 	let longestStreak = parseInt(localStorage.getItem("longestStreak")) || 0;
 	if (currentStreak > longestStreak) {

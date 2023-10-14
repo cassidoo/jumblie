@@ -48,14 +48,6 @@ let wordList = [
 		words: ["bike", "train", "truck", "airplane"],
 	},
 	{
-		theme: "technology",
-		words: ["disk", "pixel", "iphone", "computer"],
-	},
-	{
-		theme: "science",
-		words: ["atom", "light", "gravity", "physics"],
-	},
-	{
 		theme: "kingdom",
 		words: ["flag", "crown", "invader", "warrior"],
 	},
@@ -65,7 +57,15 @@ let wordList = [
 	},
 	{
 		theme: "food",
-		words: ["soup", "fruit", "citrus", "lettuce"],
+		words: ["soup", "curry", "citrus", "sausage"],
+	},
+	{
+		theme: "technology",
+		words: ["disk", "pixel", "binary", "computer"],
+	},
+	{
+		theme: "science",
+		words: ["atom", "light", "gravity", "physics"],
 	},
 	{
 		theme: "animals",
@@ -73,7 +73,7 @@ let wordList = [
 	},
 	{
 		theme: "plants",
-		words: ["bush", "petal", "needles", "pumpkin"],
+		words: ["herb", "tulip", "orchid", "pumpkin"],
 	},
 	{
 		theme: "health",
