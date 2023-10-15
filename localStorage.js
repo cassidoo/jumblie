@@ -52,3 +52,16 @@ function hasPlayedToday() {
 
 	return lastPlayedDate === now;
 }
+
+function autosave(game) {
+	localStorage.setItem("autosave", JSON.stringify(game));
+}
+
+function loadAutosave() {
+	let autosave = JSON.parse(localStorage.getItem("autosave"));
+	if (autosave) {
+		return autosave;
+	} else {
+		return null;
+	}
+}
