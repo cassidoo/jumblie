@@ -46,6 +46,10 @@ const letterMap = {};
 		});
 	}
 
+	document.ondblclick = function (e) {
+		e.preventDefault();
+	};
+
 	if (!navigator.share) {
 		jShareButton.remove();
 	}
