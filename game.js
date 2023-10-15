@@ -24,27 +24,26 @@ const letterMap = {};
 
 (function () {
 	let autosavedGame = loadAutosave();
-	if (autosavedGame) {
-		if (
-			autosavedGame.savedDate === document.getElementById("today").textContent
-		) {
-			jumbledLetters = autosavedGame.currentLetters;
-			wordsList.innerHTML = autosavedGame.currentGuessedWords.correct;
-			guessesList.innerHTML = autosavedGame.currentGuessedWords.incorrect;
-			seconds = autosavedGame.currentElapsedTime.seconds;
-			minutes = autosavedGame.currentElapsedTime.minutes;
-			hours = autosavedGame.currentElapsedTime.hours;
-			updateTimer();
+	if (
+		autosavedGame &&
+		autosavedGame?.savedDate === document.getElementById("today").textContent
+	) {
+		jumbledLetters = autosavedGame.currentLetters;
+		wordsList.innerHTML = autosavedGame.currentGuessedWords.correct;
+		guessesList.innerHTML = autosavedGame.currentGuessedWords.incorrect;
+		seconds = autosavedGame.currentElapsedTime.seconds;
+		minutes = autosavedGame.currentElapsedTime.minutes;
+		hours = autosavedGame.currentElapsedTime.hours;
+		updateTimer();
 
-			guessedWords = wordsList.children.length + guessesList.children.length;
-			wrongGuesses = guessesList.children.length;
+		guessedWords = wordsList.children.length + guessesList.children.length;
+		wrongGuesses = guessesList.children.length;
 
-			document.getElementById("wrong").textContent = wrongGuesses;
+		document.getElementById("wrong").textContent = wrongGuesses;
 
-			extractNsFromList().forEach((n) => {
-				scoreString += `${getEmoji(n)}`;
-			});
-		}
+		extractNsFromList().forEach((n) => {
+			scoreString += `${getEmoji(n)}`;
+		});
 	}
 
 	if (!navigator.share) {
@@ -402,6 +401,10 @@ document.getElementById("stats").addEventListener("click", () => {
 function getGameState() {
 	let today = new Date();
 	let now = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
+
+	if (now === document.getElementById("today")) {
+		return null;
+	}
 
 	let currentLetters = [];
 	let currentButtons = document.querySelectorAll(".letter-button");

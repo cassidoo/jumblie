@@ -54,6 +54,10 @@ function hasPlayedToday() {
 }
 
 function autosave(game) {
+	if (game === null) {
+		clearAutosave();
+	}
+
 	localStorage.setItem("autosave", JSON.stringify(game));
 }
 
@@ -64,4 +68,8 @@ function loadAutosave() {
 	} else {
 		return null;
 	}
+}
+
+function clearAutosave() {
+	localStorage.removeItem("autosave");
 }
