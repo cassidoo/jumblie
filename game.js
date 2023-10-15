@@ -218,8 +218,6 @@ function submitWord() {
 		}
 	} else {
 		if (workingWord.length > 0) {
-			wrongGuesses++;
-
 			document.getElementsByClassName("working-word")[0].classList.add("shake");
 			setTimeout(() => {
 				document
@@ -228,10 +226,17 @@ function submitWord() {
 				workingWordDiv.textContent = "";
 			}, 400);
 
-			document.getElementById("wrong").textContent = wrongGuesses;
-			const guessesElement = document.createElement("li");
-			guessesElement.textContent = workingWord;
-			guessesList.appendChild(guessesElement);
+			if (
+				!Array.from(guessesList.children).some(
+					(word) => word.textContent === workingWord
+				)
+			) {
+				wrongGuesses++;
+				document.getElementById("wrong").textContent = wrongGuesses;
+				const guessesElement = document.createElement("li");
+				guessesElement.textContent = workingWord;
+				guessesList.appendChild(guessesElement);
+			}
 		}
 
 		selectedButtons.forEach((index) => {
