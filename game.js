@@ -23,6 +23,8 @@ let scoreString = `Jumblie #${puzzleNumber}\n`;
 const letterMap = {};
 
 (function () {
+	playedToday();
+
 	let autosavedGame = loadAutosave();
 	if (
 		autosavedGame &&
@@ -53,8 +55,6 @@ const letterMap = {};
 	if (!navigator.share) {
 		jShareButton.remove();
 	}
-
-	playedToday();
 
 	document.addEventListener("keydown", handleKeydown);
 	submitButton.addEventListener("click", submitWord);
@@ -304,6 +304,7 @@ function win() {
 
 function playedToday() {
 	if (hasPlayedToday()) {
+		clearAutosave();
 		splash.style.display = "none";
 		container.style.display = "block";
 		scoreString = localStorage.getItem("latestScoreString");
