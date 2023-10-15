@@ -20,7 +20,33 @@ let wrongGuesses = 0;
 
 let scoreString = `Jumblie #${puzzleNumber}\n`;
 
+const letterMap = {};
+
 (function () {
+	let autosavedGame = loadAutosave();
+	if (autosavedGame) {
+		if (
+			autosavedGame.savedDate === document.getElementById("today").textContent
+		) {
+			jumbledLetters = autosavedGame.currentLetters;
+			wordsList.innerHTML = autosavedGame.currentGuessedWords.correct;
+			guessesList.innerHTML = autosavedGame.currentGuessedWords.incorrect;
+			seconds = autosavedGame.currentElapsedTime.seconds;
+			minutes = autosavedGame.currentElapsedTime.minutes;
+			hours = autosavedGame.currentElapsedTime.hours;
+			updateTimer();
+
+			guessedWords = wordsList.children.length + guessesList.children.length;
+			wrongGuesses = guessesList.children.length;
+
+			document.getElementById("wrong").textContent = wrongGuesses;
+
+			extractNsFromList().forEach((n) => {
+				scoreString += `${getEmoji(n)}`;
+			});
+		}
+	}
+
 	if (!navigator.share) {
 		jShareButton.remove();
 	}
@@ -37,6 +63,18 @@ let scoreString = `Jumblie #${puzzleNumber}\n`;
 	document.getElementById("help").addEventListener("click", () => {
 		document.querySelector("#helpDialog").showModal();
 	});
+
+	jumbledLetters.forEach((letter, index) => {
+		let letterButton = document.createElement("button");
+		letterButton.textContent = letter;
+		letterButton.classList.add("letter-button");
+		letterButton.classList.add(`letter-${index}`);
+		letterButton.addEventListener("click", handleButtonClick);
+
+		letterGrid.appendChild(letterButton);
+
+		letterMap[letter] = index;
+	});
 })();
 
 function mixLetters(words) {
@@ -49,19 +87,6 @@ function mixLetters(words) {
 	}
 	return letters;
 }
-
-const letterMap = {};
-jumbledLetters.forEach((letter, index) => {
-	let letterButton = document.createElement("button");
-	letterButton.textContent = letter;
-	letterButton.classList.add("letter-button");
-	letterButton.classList.add(`letter-${index}`);
-	letterButton.addEventListener("click", handleButtonClick);
-
-	letterGrid.appendChild(letterButton);
-
-	letterMap[letter] = index;
-});
 
 function handleButtonClick(event) {
 	const button = event.target;
@@ -213,40 +238,9 @@ function submitWord() {
 
 		selectedButtons = [];
 	}
+
+	autosave(getGameState());
 }
-
-document.getElementById("stats").addEventListener("click", () => {
-	const currentStreak = localStorage.getItem("currentStreak") || 0;
-	const longestStreak = localStorage.getItem("longestStreak") || 0;
-	const totalDaysPlayed = localStorage.getItem("totalDaysPlayed") || 0;
-	const fastestTimes = JSON.parse(localStorage.getItem("fastestTimes")) || [];
-
-	const currentStreakElement = document.getElementById("currentStreak");
-	const longestStreakElement = document.getElementById("longestStreak");
-	const totalDaysPlayedElement = document.getElementById("totalDaysPlayed");
-	const fastestTimesElement = document.getElementById("fastestTimes");
-
-	currentStreakElement.textContent = `${currentStreak} days`;
-	longestStreakElement.textContent = `${longestStreak} days`;
-	totalDaysPlayedElement.textContent = `${totalDaysPlayed} games`;
-
-	fastestTimesElement.innerHTML = "";
-	fastestTimes.forEach((entry) => {
-		const tr = document.createElement("tr");
-		const tdDate = document.createElement("td");
-		const tdTime = document.createElement("td");
-
-		tdDate.textContent = `${entry.date}`;
-		tdTime.textContent = convertMillisecondsToTime(entry.time);
-
-		tr.appendChild(tdDate);
-		tr.appendChild(tdTime);
-
-		fastestTimesElement.appendChild(tr);
-	});
-
-	document.querySelector("#statsDialog").showModal();
-});
 
 function getEmoji(index) {
 	switch (index) {
@@ -259,6 +253,22 @@ function getEmoji(index) {
 		case 3:
 			return "🔵";
 	}
+}
+
+function extractNsFromList() {
+	const ns = [];
+	const liElements = wordsList.getElementsByTagName("li");
+
+	for (let i = 0; i < liElements.length; i++) {
+		const liClass = liElements[i].getAttribute("class");
+		const nMatch = liClass.match(/word-(\d+)/);
+
+		if (nMatch) {
+			ns.push(parseInt(nMatch[1]));
+		}
+	}
+
+	return ns;
 }
 
 function win() {
@@ -354,4 +364,62 @@ function shuffleLetters() {
 
 	selectedButtons = [];
 	updateWorkingWord();
+}
+
+document.getElementById("stats").addEventListener("click", () => {
+	const currentStreak = localStorage.getItem("currentStreak") || 0;
+	const longestStreak = localStorage.getItem("longestStreak") || 0;
+	const totalDaysPlayed = localStorage.getItem("totalDaysPlayed") || 0;
+	const fastestTimes = JSON.parse(localStorage.getItem("fastestTimes")) || [];
+
+	const currentStreakElement = document.getElementById("currentStreak");
+	const longestStreakElement = document.getElementById("longestStreak");
+	const totalDaysPlayedElement = document.getElementById("totalDaysPlayed");
+	const fastestTimesElement = document.getElementById("fastestTimes");
+
+	currentStreakElement.textContent = `${currentStreak} days`;
+	longestStreakElement.textContent = `${longestStreak} days`;
+	totalDaysPlayedElement.textContent = `${totalDaysPlayed} games`;
+
+	fastestTimesElement.innerHTML = "";
+	fastestTimes.forEach((entry) => {
+		const tr = document.createElement("tr");
+		const tdDate = document.createElement("td");
+		const tdTime = document.createElement("td");
+
+		tdDate.textContent = `${entry.date}`;
+		tdTime.textContent = convertMillisecondsToTime(entry.time);
+
+		tr.appendChild(tdDate);
+		tr.appendChild(tdTime);
+
+		fastestTimesElement.appendChild(tr);
+	});
+
+	document.querySelector("#statsDialog").showModal();
+});
+
+function getGameState() {
+	let today = new Date();
+	let now = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
+
+	let currentLetters = [];
+	let currentButtons = document.querySelectorAll(".letter-button");
+	currentButtons.forEach((button) => {
+		currentLetters.push(button.textContent);
+	});
+
+	return {
+		savedDate: now,
+		currentLetters,
+		currentGuessedWords: {
+			correct: wordsList.innerHTML,
+			incorrect: guessesList.innerHTML,
+		},
+		currentElapsedTime: {
+			hours,
+			minutes,
+			seconds,
+		},
+	};
 }
