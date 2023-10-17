@@ -23,6 +23,10 @@ function updateStreakAndFastestTimes(time, scoreString) {
 		}
 	}
 
+	if (time === null) {
+		localStorage.setItem("currentStreak", "0");
+	}
+
 	localStorage.setItem("lastPlayedDate", now);
 
 	let longestStreak = parseInt(localStorage.getItem("longestStreak")) || 0;
@@ -34,13 +38,15 @@ function updateStreakAndFastestTimes(time, scoreString) {
 	totalDaysPlayed++;
 	localStorage.setItem("totalDaysPlayed", totalDaysPlayed);
 
-	let fastestTimes = JSON.parse(localStorage.getItem("fastestTimes")) || [];
-	fastestTimes.push({ time, date: now });
-	fastestTimes.sort((a, b) => a.time - b.time);
-	if (fastestTimes.length > 3) {
-		fastestTimes.pop();
+	if (time !== null) {
+		let fastestTimes = JSON.parse(localStorage.getItem("fastestTimes")) || [];
+		fastestTimes.push({ time, date: now });
+		fastestTimes.sort((a, b) => a.time - b.time);
+		if (fastestTimes.length > 3) {
+			fastestTimes.pop();
+		}
+		localStorage.setItem("fastestTimes", JSON.stringify(fastestTimes));
 	}
-	localStorage.setItem("fastestTimes", JSON.stringify(fastestTimes));
 
 	localStorage.setItem("latestScoreString", scoreString);
 }

@@ -41,6 +41,10 @@ const letterMap = {};
 		guessedWords = wordsList.children.length + guessesList.children.length;
 		wrongGuesses = guessesList.children.length;
 
+		if (wrongGuesses >= 10) {
+			document.getElementById("giveUp").classList.remove("hidden");
+		}
+
 		document.getElementById("wrong").textContent = wrongGuesses;
 
 		extractNsFromList().forEach((n) => {
@@ -247,6 +251,10 @@ function submitWord() {
 		selectedButtons = [];
 	}
 
+	if (wrongGuesses >= 10) {
+		document.getElementById("giveUp").classList.remove("hidden");
+	}
+
 	autosave(getGameState());
 }
 
@@ -302,7 +310,39 @@ function win() {
 	}
 }
 
+function confirmGiveUp() {
+	let giveUpButton = document.getElementById("giveUp");
+	giveUpButton.textContent = "Are you sure?";
+	giveUpButton.onclick = giveUp;
+}
+
+function giveUp() {
+	let finalTime = endGame();
+	scoreString += `\nI gave up after ${guessedWords} guesses in ${convertTimeHMS(
+		finalTime
+	)}\nhttps://jumblie.com`;
+
+	updateStreakAndFastestTimes(null, scoreString);
+
+	document.getElementById("pause").remove();
+	document.getElementById("message").textContent =
+		"Better luck next time! You can try again tomorrow.";
+	document.getElementById("submit").remove();
+	document.getElementsByClassName("working-word")[0].remove();
+	document.getElementsByClassName("submission")[0].remove();
+	document.getElementById("letterGrid").remove();
+	shareButton.classList.remove("hidden");
+	if (jShareButton) {
+		jShareButton?.classList.remove("hidden");
+	}
+}
+
 function playedToday() {
+	let message = "";
+	if (parseInt(localStorage.getItem("currentStreak")) !== 0) {
+		message = "You found all the words today! ";
+	}
+
 	if (hasPlayedToday()) {
 		clearAutosave();
 		splash.style.display = "none";
@@ -310,8 +350,9 @@ function playedToday() {
 		scoreString = localStorage.getItem("latestScoreString");
 		shareButton.classList.remove("hidden");
 		document.getElementById("pause").remove();
-		document.getElementById("message").textContent =
-			"You found all the words today! Can't wait to play again tomorrow!";
+		document.getElementById(
+			"message"
+		).textContent = `${message}Can't wait to play again tomorrow!`;
 		document.getElementById("submit").remove();
 		document.getElementsByClassName("working-word")[0].remove();
 		document.getElementsByClassName("submission")[0].remove();

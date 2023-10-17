@@ -157,6 +157,10 @@ details summary strong {
 	padding-left: 15px;
 }
 
+details p {
+	text-align: center;
+}
+
 header {
 	display: flex;
 	justify-content: space-between;
