@@ -41,7 +41,7 @@ const letterMap = {};
 		guessedWords = wordsList.children.length + guessesList.children.length;
 		wrongGuesses = guessesList.children.length;
 
-		if (wrongGuesses >= 10) {
+		if (wrongGuesses >= 5) {
 			document.getElementById("giveUp").classList.remove("hidden");
 		}
 
@@ -251,7 +251,7 @@ function submitWord() {
 		selectedButtons = [];
 	}
 
-	if (wrongGuesses >= 10) {
+	if (wrongGuesses >= 5) {
 		document.getElementById("giveUp").classList.remove("hidden");
 	}
 
@@ -332,6 +332,13 @@ function giveUp() {
 	document.getElementsByClassName("submission")[0].remove();
 	document.getElementById("letterGrid").remove();
 	shareButton.classList.remove("hidden");
+	todaysWords.forEach((word) => {
+		const wordElement = document.createElement("li");
+		wordElement.textContent = word;
+		const index = wordsForTheDay.words.indexOf(word);
+		wordElement.classList.add(`word-${index}`);
+		wordsList.appendChild(wordElement);
+	});
 	if (jShareButton) {
 		jShareButton?.classList.remove("hidden");
 	}
