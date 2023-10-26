@@ -285,7 +285,7 @@ let wordList = [
 	},
 	{
 		theme: "fitness",
-		words: ["reps", "sweat", "jogging", "spinning"],
+		words: ["lift", "sweat", "bicycle", "jogging"],
 	},
 	{
 		theme: "beauty",
@@ -313,7 +313,7 @@ let wordList = [
 	},
 	{
 		theme: "crafts",
-		words: ["glue", "beads", "knitting", "crochet"],
+		words: ["glue", "bead", "knitting", "crochet"],
 	},
 	{
 		theme: "games",
@@ -429,7 +429,7 @@ let wordList = [
 	},
 	{
 		theme: "photography",
-		words: ["lens", "thirds", "camera", "portrait"],
+		words: ["lens", "frame", "camera", "portrait"],
 	},
 	{
 		theme: "dance",
@@ -457,7 +457,7 @@ let wordList = [
 	},
 	{
 		theme: "television",
-		words: ["show", "episode", "series", "sitcom"],
+		words: ["show", "episode", "season", "sitcom"],
 	},
 	{
 		theme: "games",
@@ -493,7 +493,7 @@ let wordList = [
 	},
 	{
 		theme: "aviation",
-		words: ["jets", "pilot", "flight", "runway"],
+		words: ["wing", "pilot", "flight", "runway"],
 	},
 	{
 		theme: "money",
@@ -501,10 +501,10 @@ let wordList = [
 	},
 	{
 		theme: "shopping",
-		words: ["mall", "sales", "outlet", "thrift"],
+		words: ["mall", "store", "outlet", "thrift"],
 	},
 	{
-		theme: "economics and finance",
+		theme: "economics",
 		words: ["save", "trade", "demand", "capital"],
 	},
 	{
@@ -569,7 +569,7 @@ let wordList = [
 	},
 	{
 		theme: "generations",
-		words: ["ages", "elders", "legacy", "descend"],
+		words: ["life", "elder", "legacy", "descend"],
 	},
 	{
 		theme: "aging",
