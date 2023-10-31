@@ -155,6 +155,7 @@ function handleKeydown(event) {
 	}
 
 	if (key === " ") {
+		event.preventDefault(); // to prevent scrolling
 		shuffleLetters();
 	}
 
