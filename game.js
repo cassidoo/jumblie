@@ -40,6 +40,9 @@ const letterMap = {};
 
 		guessedWords = wordsList.children.length + guessesList.children.length;
 		wrongGuesses = guessesList.children.length;
+		todaysWords = wordsForTheDay.words.filter(
+			(word) => !wordsList.innerHTML.includes(word)
+		);
 
 		if (wrongGuesses >= 5) {
 			document.getElementById("giveUp").classList.remove("hidden");
