@@ -109,7 +109,7 @@ let wordList = [
 	},
 	{
 		theme: "generation",
-		words: ["mill", "alpha", "elder", "ancient"],
+		words: ["year", "alpha", "elder", "ancient"],
 	},
 	{
 		theme: "literature",
@@ -145,7 +145,7 @@ let wordList = [
 	},
 	{
 		theme: "crime",
-		words: ["theft", "fraud", "kidnap", "assault"],
+		words: ["hack", "fraud", "kidnap", "robbery"],
 	},
 	{
 		theme: "justice",
@@ -161,7 +161,7 @@ let wordList = [
 	},
 	{
 		theme: "mythology",
-		words: ["zeus", "athena", "olympus", "heracles"],
+		words: ["zeus", "totem", "divine", "fantasy"],
 	},
 	{
 		theme: "geology",
