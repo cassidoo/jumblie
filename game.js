@@ -462,7 +462,7 @@ document.getElementById("stats").addEventListener("click", () => {
 });
 
 function getGameState() {
-	let today = new Date();
+	let today = getCurrentDate();
 	let now = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
 
 	if (now === document.getElementById("today")) {
