@@ -199,8 +199,6 @@ function submitWord() {
 	const workingWord = workingWordDiv.textContent;
 	const letterButtons = document.querySelectorAll(".letter-button");
 
-	fathom.trackEvent("Guessed a word");
-
 	if (workingWord.length !== 0) {
 		guessedWords++;
 	}
@@ -264,6 +262,7 @@ function submitWord() {
 	}
 
 	autosave(getGameState());
+	fathom.trackEvent("Guessed a word");
 }
 
 function getEmoji(index) {
@@ -301,10 +300,6 @@ function win() {
 		finalTime
 	)}\nhttps://jumblie.com`;
 
-	fathom.trackEvent("Winning", {
-		_value: finalTime,
-	});
-
 	updateStreakAndFastestTimes(
 		convertTimeToMilliseconds(finalTime),
 		scoreString
@@ -320,6 +315,10 @@ function win() {
 	if (jShareButton) {
 		jShareButton?.classList.remove("hidden");
 	}
+
+	fathom.trackEvent("Winning", {
+		_value: finalTime,
+	});
 }
 
 function confirmGiveUp() {
@@ -333,10 +332,6 @@ function giveUp() {
 	scoreString += `\nI gave up after ${guessedWords} guesses in ${convertTimeHMS(
 		finalTime
 	)}\nhttps://jumblie.com`;
-
-	fathom.trackEvent("Giving up", {
-		_value: finalTime,
-	});
 
 	updateStreakAndFastestTimes(null, scoreString);
 
@@ -358,6 +353,10 @@ function giveUp() {
 	if (jShareButton) {
 		jShareButton?.classList.remove("hidden");
 	}
+
+	fathom.trackEvent("Giving up", {
+		_value: finalTime,
+	});
 }
 
 function playedToday() {
@@ -440,8 +439,6 @@ function shuffleLetters() {
 }
 
 document.getElementById("stats").addEventListener("click", () => {
-	fathom.trackEvent("Checked Stats");
-
 	const currentStreak = localStorage.getItem("currentStreak") || 0;
 	const longestStreak = localStorage.getItem("longestStreak") || 0;
 	const totalDaysPlayed = localStorage.getItem("totalDaysPlayed") || 0;
@@ -472,6 +469,7 @@ document.getElementById("stats").addEventListener("click", () => {
 	});
 
 	document.querySelector("#statsDialog").showModal();
+	fathom.trackEvent("Checked Stats");
 });
 
 function getGameState() {
