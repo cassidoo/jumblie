@@ -72,6 +72,7 @@ const letterMap = {};
 
 	document.getElementById("help").addEventListener("click", () => {
 		document.querySelector("#helpDialog").showModal();
+		fathom.trackEvent("Opened Help");
 	});
 
 	jumbledLetters.forEach((letter, index) => {
@@ -298,6 +299,11 @@ function win() {
 		finalTime
 	)}\nhttps://jumblie.com`;
 
+	fathom.trackEvent("Winning", {
+		time: finalTime,
+		guesses: guessedWords,
+	});
+
 	updateStreakAndFastestTimes(
 		convertTimeToMilliseconds(finalTime),
 		scoreString
@@ -326,6 +332,11 @@ function giveUp() {
 	scoreString += `\nI gave up after ${guessedWords} guesses in ${convertTimeHMS(
 		finalTime
 	)}\nhttps://jumblie.com`;
+
+	fathom.trackEvent("Giving up", {
+		time: finalTime,
+		guesses: guessedWords,
+	});
 
 	updateStreakAndFastestTimes(null, scoreString);
 
@@ -429,6 +440,8 @@ function shuffleLetters() {
 }
 
 document.getElementById("stats").addEventListener("click", () => {
+	fathom.trackEvent("Checked Stats");
+
 	const currentStreak = localStorage.getItem("currentStreak") || 0;
 	const longestStreak = localStorage.getItem("longestStreak") || 0;
 	const totalDaysPlayed = localStorage.getItem("totalDaysPlayed") || 0;
