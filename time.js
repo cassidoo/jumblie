@@ -20,6 +20,8 @@ function startGame() {
 	document.getElementById("splashTitle").textContent = "Paused";
 	document.getElementById("splashTheme").style.display = "none";
 
+	fathom.trackEvent("Started a game");
+
 	document
 		.querySelectorAll(".hidden-start")
 		.forEach((el) => el.classList.remove("hidden-start"));

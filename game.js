@@ -199,6 +199,8 @@ function submitWord() {
 	const workingWord = workingWordDiv.textContent;
 	const letterButtons = document.querySelectorAll(".letter-button");
 
+	fathom.trackEvent("Guessed a word");
+
 	if (workingWord.length !== 0) {
 		guessedWords++;
 	}
