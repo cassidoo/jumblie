@@ -302,8 +302,7 @@ function win() {
 	)}\nhttps://jumblie.com`;
 
 	fathom.trackEvent("Winning", {
-		time: finalTime,
-		guesses: guessedWords,
+		_value: finalTime,
 	});
 
 	updateStreakAndFastestTimes(
@@ -336,8 +335,7 @@ function giveUp() {
 	)}\nhttps://jumblie.com`;
 
 	fathom.trackEvent("Giving up", {
-		time: finalTime,
-		guesses: guessedWords,
+		_value: finalTime,
 	});
 
 	updateStreakAndFastestTimes(null, scoreString);
