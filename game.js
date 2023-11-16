@@ -317,7 +317,7 @@ function win() {
 	}
 
 	fathom.trackEvent("Winning", {
-		_value: finalTime,
+		_value: guessedWords,
 	});
 }
 
@@ -355,7 +355,7 @@ function giveUp() {
 	}
 
 	fathom.trackEvent("Giving up", {
-		_value: finalTime,
+		_value: guessedWords,
 	});
 }
 
