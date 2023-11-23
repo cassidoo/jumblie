@@ -134,7 +134,7 @@ td {
 }
 
 table thead {
-	background: #e5e5e5;
+	background: rgba(0, 0, 0, 0.1);
 }
 
 #statsDialog table td {
