@@ -133,10 +133,10 @@ td {
 }
 
 table thead {
-	background: rgba(0, 0, 0, 0.1);
+	background: #e5e5e5;
 }
 
-table td {
+#statsDialog table td {
 	width: 50%;
 	padding: 10px;
 }
