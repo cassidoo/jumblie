@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+		<title>Jumblie Archive</title>
+
+		<meta
+			name="description"
+			content="A word search game with new words and themes daily"
+		/>
+
+		<meta property="og:url" content="https://jumblie.com" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Jumblie" />
+		<meta
+			property="og:description"
+			content="A word search game with new words and themes daily"
+		/>
+		<meta property="og:image" content="https://jumblie.com/assets/og.png" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta property="twitter:domain" content="jumblie.com" />
+		<meta property="twitter:url" content="https://jumblie.com" />
+		<meta name="twitter:title" content="Jumblie" />
+		<meta
+			name="twitter:description"
+			content="A word search game with new words and themes daily"
+		/>
+		<meta
+			name="twitter:image"
+			content="https://jumblie.com/assets/twitterog.png"
+		/>
+
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="../assets/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="../assets/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="../assets/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="../assets/site.webmanifest" />
+		<link
+			rel="mask-icon"
+			href="../assets/safari-pinned-tab.svg"
+			color="#02486e"
+		/>
+		<link rel="shortcut icon" href="../assets/favicon.ico" />
+		<meta name="msapplication-TileColor" content="#ffffff" />
+		<meta name="msapplication-config" content="../assets/browserconfig.xml" />
+		<meta name="theme-color" content="#ffffff" />
+
+		<script
+			src="https://cdn.usefathom.com/script.js"
+			data-site="KUPXIAYH"
+			defer
+		></script>
+
+		<link rel="stylesheet" href="../style.css" />
+
+		<style>
+			#archivecontainer {
+				margin-top: 10px;
+			}
+
+			table {
+				white-space: nowrap;
+			}
+			table td,
+			table th {
+				padding: 0.5rem 1rem;
+			}
+			table thead th {
+				padding: 3px;
+				position: sticky;
+				top: 0;
+				z-index: 1;
+				width: 25vw;
+				background: #e5e5e5;
+				border: 1px solid black;
+			}
+			table td {
+				padding: 4px 5px;
+				text-align: center;
+			}
+
+			table tbody th {
+				position: relative;
+				border: 1px solid black;
+			}
+			table thead th:first-child {
+				position: sticky;
+				left: 0;
+				z-index: 2;
+			}
+			table tbody th {
+				position: sticky;
+				left: 0;
+				background: #e5e5e5;
+				z-index: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="header-chunk">
+				<h1 class="brand mb2">Jumblie</h1>
+				<div class="header-subs">
+					<time id="today"></time>
+				</div>
+			</div>
+			<div class="header-chunk end">
+				<div>
+					<button class="black mb2" role="link" onClick="playJumblie()">
+						Play
+					</button>
+				</div>
+			</div>
+		</header>
+
+		<div id="archivecontainer">
+			<p>Catch up on answers from previous days!</p>
+
+			<table border="0" id="archivetable">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Theme</th>
+						<th>🔴</th>
+						<th>🟠</th>
+						<th>🟢</th>
+						<th>🔵</th>
+					</tr>
+				</thead>
+				<tbody id="archive"></tbody>
+			</table>
+
+			<div class="jumb-share">
+				<button class="black" id="jshare" onClick="shareLink()">
+					Share <span class="brand">Jumblie</span>
+				</button>
+			</div>
+		</div>
+
+		<footer>
+			<span class="brand">Jumblie</span> is brought to you by
+			<a href="https://cassidoo.co">@cassidoo</a>!
+		</footer>
+
+		<script src="../words/forCheaters.js"></script>
+		<script src="../dailyWords.js"></script>
+		<script src="./archive.js"></script>
+	</body>
+</html>
