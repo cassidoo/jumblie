@@ -66,7 +66,8 @@ button.header-icon {
 	line-height: 20px;
 }
 
-.jumb-share {
+.jumb-share,
+.archive-intro {
 	text-align: center;
 }
 
@@ -136,7 +137,7 @@ table thead {
 	background: rgba(0, 0, 0, 0.1);
 }
 
-table td {
+#statsDialog table td {
 	width: 50%;
 	padding: 10px;
 }
@@ -167,6 +168,10 @@ header {
 	align-items: flex-end;
 	padding-bottom: 10px;
 	border-bottom: 1px solid #000000;
+}
+
+header.archive {
+	align-items: center;
 }
 
 header h1 {
@@ -225,6 +230,7 @@ header .header-chunk {
 
 header .header-chunk.end {
 	display: flex;
+	align-items: center;
 	justify-content: flex-end;
 }
 
@@ -372,6 +378,22 @@ header div:first-child {
 	background: #02486e;
 }
 
+.color-0 {
+	color: #d62828;
+}
+
+.color-1 {
+	color: #f77f00;
+}
+
+.color-2 {
+	color: #38b000;
+}
+
+.color-3 {
+	color: #02486e;
+}
+
 .message {
 	font-weight: 600;
 	text-align: center;
@@ -458,4 +480,12 @@ footer a {
 	.word-result li {
 		width: 160px;
 	}
+}
+
+#archivecontainer {
+	margin-top: 10px;
+}
+
+#archivecontainer details summary {
+	font-weight: 700;
 }
