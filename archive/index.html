@@ -70,52 +70,9 @@
 		></script>
 
 		<link rel="stylesheet" href="../style.css" />
-
-		<style>
-			#archivecontainer {
-				margin-top: 10px;
-			}
-
-			table {
-				white-space: nowrap;
-			}
-			table td,
-			table th {
-				padding: 0.5rem 1rem;
-			}
-			table thead th {
-				padding: 3px;
-				position: sticky;
-				top: 0;
-				z-index: 1;
-				width: 25vw;
-				background: #e5e5e5;
-				border: 1px solid black;
-			}
-			table td {
-				padding: 4px 5px;
-				text-align: center;
-			}
-
-			table tbody th {
-				position: relative;
-				border: 1px solid black;
-			}
-			table thead th:first-child {
-				position: sticky;
-				left: 0;
-				z-index: 2;
-			}
-			table tbody th {
-				position: sticky;
-				left: 0;
-				background: #e5e5e5;
-				z-index: 1;
-			}
-		</style>
 	</head>
 	<body>
-		<header>
+		<header class="archive">
 			<div class="header-chunk">
 				<h1 class="brand mb2">Jumblie</h1>
 				<div class="header-subs">
@@ -123,36 +80,20 @@
 				</div>
 			</div>
 			<div class="header-chunk end">
-				<div>
-					<button class="black mb2" role="link" onClick="playJumblie()">
-						Play
-					</button>
-				</div>
+				<button class="black mb2" role="link" onClick="playJumblie()">
+					Play
+				</button>
 			</div>
 		</header>
 
-		<div id="archivecontainer">
-			<p>Catch up on answers from previous days!</p>
+		<p class="archive-intro">Catch up on answers from previous days!</p>
 
-			<table border="0" id="archivetable">
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Theme</th>
-						<th>🔴</th>
-						<th>🟠</th>
-						<th>🟢</th>
-						<th>🔵</th>
-					</tr>
-				</thead>
-				<tbody id="archive"></tbody>
-			</table>
+		<div id="archivecontainer"></div>
 
-			<div class="jumb-share">
-				<button class="black" id="jshare" onClick="shareLink()">
-					Share <span class="brand">Jumblie</span>
-				</button>
-			</div>
+		<div class="jumb-share">
+			<button class="black" id="jshare" onClick="shareLink()">
+				Share <span class="brand">Jumblie</span>
+			</button>
 		</div>
 
 		<footer>
