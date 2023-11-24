@@ -335,6 +335,7 @@ function giveUp() {
 
 	updateStreakAndFastestTimes(null, scoreString);
 
+	document.getElementById("giveUp").remove();
 	document.getElementById("pause").remove();
 	document.getElementById("message").textContent =
 		"Better luck next time! You can try again tomorrow.";
