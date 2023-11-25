@@ -489,3 +489,7 @@ footer a {
 #archivecontainer details summary {
 	font-weight: 700;
 }
+
+form {
+	background: #efe9e6;
+}

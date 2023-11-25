@@ -3,7 +3,6 @@
 	if (!navigator.share) {
 		document.getElementById("jshare").remove();
 	}
-	fathom.trackEvent("Viewed Archive");
 })();
 
 function addWordsToArchive() {
