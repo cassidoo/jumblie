@@ -394,6 +394,10 @@ header div:first-child {
 	color: #02486e;
 }
 
+.color-3:hover {
+	color: #38b000;
+}
+
 .message {
 	font-weight: 600;
 	text-align: center;

@@ -305,6 +305,7 @@ function win() {
 		scoreString
 	);
 
+	jShareButton.remove();
 	document.getElementById("pause").remove();
 	document.getElementById("message").textContent =
 		"Yay! You found all the words!";
@@ -335,6 +336,7 @@ function giveUp() {
 
 	updateStreakAndFastestTimes(null, scoreString);
 
+	jShareButton.remove();
 	document.getElementById("giveUp").remove();
 	document.getElementById("pause").remove();
 	document.getElementById("message").textContent =
