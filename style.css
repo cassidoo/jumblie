@@ -489,3 +489,95 @@ footer a {
 #archivecontainer details summary {
 	font-weight: 700;
 }
+
+form {
+	padding: 20px;
+	background: #efe9e6;
+	border-radius: 20px;
+}
+
+form fieldset {
+	margin: 0 0 10px;
+	padding: 0;
+	border: 0;
+}
+
+form fieldset legend {
+	padding-inline-start: 0;
+}
+
+form p {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 0;
+}
+
+input {
+	font-size: 20px;
+	font-weight: 700;
+	padding: 10px 15px;
+	margin-bottom: 10px;
+	border: 3px solid #000000;
+	border-radius: 40px;
+}
+
+input[type="email"] {
+	margin: 0;
+}
+
+input:invalid {
+	border-color: #ff0000;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"] {
+	width: 100%;
+}
+
+input[type="radio"] {
+	opacity: 0;
+	position: absolute;
+	width: 0;
+}
+
+input[type="radio"] + label {
+	display: inline-block;
+	position: relative;
+	padding-left: 30px;
+	cursor: pointer;
+	line-height: 1.5;
+}
+
+input[type="radio"] + label:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 16px;
+	height: 16px;
+	border: 2px solid #000000;
+	border-radius: 50%;
+	background-color: #ffffff;
+}
+
+input[type="radio"]:checked + label:after {
+	content: "";
+	position: absolute;
+	left: 5px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #000000;
+}
+
+hr {
+	margin: 20px 0;
+	border: 0;
+	border-top: 3px solid #000000;
+}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+		<title>Jumblie | Suggest a Puzzle</title>
+
+		<meta
+			name="description"
+			content="A word search game with new words and themes daily"
+		/>
+
+		<meta property="og:url" content="https://jumblie.com" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Jumblie" />
+		<meta
+			property="og:description"
+			content="A word search game with new words and themes daily"
+		/>
+		<meta property="og:image" content="https://jumblie.com/assets/og.png" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta property="twitter:domain" content="jumblie.com" />
+		<meta property="twitter:url" content="https://jumblie.com" />
+		<meta name="twitter:title" content="Jumblie" />
+		<meta
+			name="twitter:description"
+			content="A word search game with new words and themes daily"
+		/>
+		<meta
+			name="twitter:image"
+			content="https://jumblie.com/assets/twitterog.png"
+		/>
+
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="../assets/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="../assets/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="../assets/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="../assets/site.webmanifest" />
+		<link
+			rel="mask-icon"
+			href="../assets/safari-pinned-tab.svg"
+			color="#02486e"
+		/>
+		<link rel="shortcut icon" href="../assets/favicon.ico" />
+		<meta name="msapplication-TileColor" content="#ffffff" />
+		<meta name="msapplication-config" content="../assets/browserconfig.xml" />
+		<meta name="theme-color" content="#ffffff" />
+
+		<script
+			src="https://cdn.usefathom.com/script.js"
+			data-site="KUPXIAYH"
+			defer
+		></script>
+
+		<link rel="stylesheet" href="../style.css" />
+	</head>
+	<body>
+		<header class="suggestions">
+			<div class="header-chunk">
+				<h1 class="brand mb2">Jumblie</h1>
+			</div>
+			<div class="header-chunk end">
+				<button class="black mb2" role="link" onClick="playJumblie('suggest')">
+					Play
+				</button>
+			</div>
+		</header>
+
+		<p class="suggest-intro">
+			Do you have an idea for a Jumblie puzzle you'd like to see? Submit your
+			ideas here!
+		</p>
+
+		<ul>
+			<li>Keep it clean and appropriate for all ages</li>
+			<li>
+				Keep words between 4 and 9 characters, with the first word being the
+				shortest
+			</li>
+			<li>Keep it fun!</li>
+		</ul>
+
+		<form
+			name="suggest"
+			id="suggestion-form"
+			method="POST"
+			action="/suggest/success"
+			netlify-honeypot="bot-field"
+			data-netlify="true"
+		>
+			<p class="hidden">
+				<label>
+					Don't fill this out if you're human: <input name="bot-field" />
+				</label>
+			</p>
+			<p>
+				<label for="name">Your Name:</label>
+				<input type="text" name="name" id="name" />
+			</p>
+			<p>
+				<label for="email">Your Email:</label>
+				<input type="email" name="email" id="email" />
+				<small>
+					I won't use this for anything other than contacting you about your
+					suggestion.
+				</small>
+			</p>
+
+			<fieldset name="credit">
+				<legend>How I should credit you:</legend>
+
+				<div>
+					<input
+						type="radio"
+						id="credit-name"
+						name="credit"
+						value="credit-name"
+						checked
+					/>
+					<label for="credit-name">Name</label>
+				</div>
+
+				<div>
+					<input
+						type="radio"
+						id="credit-username"
+						name="credit"
+						value="credit-username"
+					/>
+					<label for="credit-username">Handle</label>
+				</div>
+
+				<div>
+					<input type="radio" id="credit-no" name="credit" value="no-credit" />
+					<label for="credit-no">Don't credit me</label>
+				</div>
+			</fieldset>
+
+			<p id="handle-input">
+				<label for="handle">Your Handle:</label>
+				<input type="text" name="handle" id="handle" placeholder="@cassidoo" />
+			</p>
+
+			<p id="link-input">
+				<label for="link">What I should link to when crediting you:</label>
+				<input
+					type="url"
+					name="credit-link"
+					id="link"
+					placeholder="https://jumblie.com"
+				/>
+			</p>
+
+			<hr />
+
+			<p>
+				<label for="theme">Theme: </label>
+				<input type="text" name="theme" id="theme" placeholder="ocean" />
+			</p>
+			<p>
+				<label for="word-0">🔴 word: </label>
+				<input
+					type="text"
+					name="word-0"
+					id="word-0"
+					placeholder="reef"
+					minlength="4"
+					maxlength="9"
+				/>
+			</p>
+			<p>
+				<label for="word-1">🟠 word: </label>
+				<input
+					type="text"
+					name="word-1"
+					id="word-1"
+					placeholder="whale"
+					minlength="4"
+					maxlength="9"
+				/>
+			</p>
+			<p>
+				<label for="word-2">🟢 word: </label>
+				<input
+					type="text"
+					name="word-2"
+					id="word-2"
+					placeholder="marine"
+					minlength="4"
+					maxlength="9"
+				/>
+			</p>
+			<p>
+				<label for="word-3">🔵 word:</label>
+				<input
+					type="text"
+					name="word-3"
+					id="word-3"
+					placeholder="lobster"
+					minlength="4"
+					maxlength="9"
+				/>
+			</p>
+			<p>
+				<button type="submit" class="black">Send</button>
+			</p>
+		</form>
+
+		<p>
+			There's no guarantees that your puzzle will be picked, but if it does, you
+			will be notified! You are welcome to submit multiple ideas, but please do
+			not spam the form!
+		</p>
+
+		<div class="jumb-share">
+			<button class="black" id="jshare" onClick="shareLink()">
+				Share <span class="brand">Jumblie</span>
+			</button>
+		</div>
+
+		<footer>
+			<a href="https://jumblie.com/archive">View the archive</a>
+			<br />
+			<span class="brand">Jumblie</span> is brought to you by
+			<a href="https://cassidoo.co">@cassidoo</a>!
+		</footer>
+
+		<script src="./suggest.js"></script>
+		<script src="../shared.js"></script>
+	</body>
+</html>
