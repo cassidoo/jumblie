@@ -25,7 +25,7 @@ function toggleInputFields() {
 			document.getElementById("handle-input").style.display = "flex";
 			document.getElementById("link-input").style.display = "flex";
 			break;
-		case "no":
+		case "no-credit":
 			document.getElementById("handle-input").style.display = "none";
 			document.getElementById("link-input").style.display = "none";
 			break;
