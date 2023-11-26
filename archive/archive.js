@@ -42,23 +42,3 @@ function coloredBullets() {
 	}
 	return bullets;
 }
-
-function playJumblie() {
-	window.location.href =
-		"https://jumblie.com/?utm_campaign=archive&utm_source=archive";
-}
-
-function shareLink() {
-	if (navigator.share) {
-		navigator
-			.share({
-				title: "Jumblie",
-				text: "Check out Jumblie, a fun word search game!",
-				url: "https://jumblie.com",
-			})
-			.then(() => console.log("Successful share"))
-			.catch((error) => console.log("Error sharing", error));
-	} else {
-		console.log("Share not supported");
-	}
-}

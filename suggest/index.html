@@ -77,7 +77,7 @@
 				<h1 class="brand mb2">Jumblie</h1>
 			</div>
 			<div class="header-chunk end">
-				<button class="black mb2" role="link" onClick="playJumblie()">
+				<button class="black mb2" role="link" onClick="playJumblie('suggest')">
 					Play
 				</button>
 			</div>
@@ -101,6 +101,7 @@
 			name="suggest"
 			id="suggestion-form"
 			method="POST"
+			action="/suggestions/success"
 			netlify-honeypot="bot-field"
 			data-netlify="true"
 		>
@@ -235,12 +236,12 @@
 		</div>
 
 		<footer>
-			<a href="./archive">View the archive</a>
+			<a href="https://jumblie.com/archive">View the archive</a>
 			<br />
 			<span class="brand">Jumblie</span> is brought to you by
 			<a href="https://cassidoo.co">@cassidoo</a>!
 		</footer>
 
-		<script src="./suggest.js"></script>
+		<script src="../shared.js"></script>
 	</body>
 </html>
