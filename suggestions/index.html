@@ -75,9 +75,6 @@
 		<header class="suggestions">
 			<div class="header-chunk">
 				<h1 class="brand mb2">Jumblie</h1>
-				<div class="header-subs">
-					<time id="today"></time>
-				</div>
 			</div>
 			<div class="header-chunk end">
 				<button class="black mb2" role="link" onClick="playJumblie()">
@@ -113,48 +110,112 @@
 				</label>
 			</p>
 			<p>
-				<label>Your Name: <input type="text" name="name" /></label>
+				<label for="name">Your Name:</label>
+				<input type="text" name="name" id="name" />
 			</p>
 			<p>
-				<label>Your Email: <input type="email" name="email" /></label>
+				<label for="email">Your Email:</label>
+				<input type="email" name="email" id="email" />
+				<small>
+					I won't use this for anything other than contacting you about your
+					suggestion.
+				</small>
 			</p>
-			<p>
-				<fieldset>
-					<legend>How I should credit you:</legend>
-				  
-					<div>
-					  <input type="radio" id="credit-name" name="credit" value="name" checked />
-					  <label for="credit-name">Name</label>
-					</div>
-				  
-					<div>
-					  <input type="radio" id="credit-username" name="credit" value="username" />
-					  <label for="credit-username">Handle</label>
-					</div>
-				  
-					<div>
-					  <input type="radio" id="credit-no" name="credit" value="no" />
-					  <label for="credit-no">Don't credit me</label>
-					</div>
-				  </fieldset>
-			</p>
+
+			<fieldset>
+				<legend>How I should credit you:</legend>
+
+				<div>
+					<input
+						type="radio"
+						id="credit-name"
+						name="credit"
+						value="credit-name"
+						checked
+					/>
+					<label for="credit-name">Name</label>
+				</div>
+
+				<div>
+					<input
+						type="radio"
+						id="credit-username"
+						name="credit"
+						value="credit-username"
+					/>
+					<label for="credit-username">Handle</label>
+				</div>
+
+				<div>
+					<input type="radio" id="credit-no" name="credit" value="no" />
+					<label for="credit-no">Don't credit me</label>
+				</div>
+			</fieldset>
+
 			<p id="handle-input">
-				<label>Your Handle: <input type="text" name="name" placeholder="@cassidoo" /></label>
+				<label for="handle">Your Handle:</label>
+				<input type="text" name="name" id="handle" placeholder="@cassidoo" />
 			</p>
+
 			<p id="link-input">
-				<label>
-					What I should link to when crediting you:
-					<input type="text" name="credit-link" />
-				</label>
+				<label for="link">What I should link to when crediting you:</label>
+				<input
+					type="url"
+					name="credit-link"
+					id="link"
+					placeholder="https://jumblie.com"
+				/>
+			</p>
+
+			<hr />
+
+			<p>
+				<label for="theme">Theme: </label>
+				<input type="text" name="theme" id="theme" placeholder="ocean" />
 			</p>
 			<p>
-				<label>Theme: <input type="text" name="theme" /></label>
+				<label for="word-0">🔴 word: </label>
+				<input
+					type="text"
+					name="word-0"
+					id="word-0"
+					placeholder="reef"
+					minlength="4"
+					maxlength="9"
+				/>
 			</p>
 			<p>
-				<label>🔴 word: <input type="text" name="word-0" /></label><br />
-				<label>🟠 word: <input type="text" name="word-1" /></label><br />
-				<label>🟢 word: <input type="text" name="word-2" /></label><br />
-				<label>🔵 word: <input type="text" name="word-3" /></label>
+				<label for="word-1">🟠 word: </label>
+				<input
+					type="text"
+					name="word-1"
+					id="word-1"
+					placeholder="whale"
+					minlength="4"
+					maxlength="9"
+				/>
+			</p>
+			<p>
+				<label for="word-2">🟢 word: </label>
+				<input
+					type="text"
+					name="word-2"
+					id="word-2"
+					placeholder="marine"
+					minlength="4"
+					maxlength="9"
+				/>
+			</p>
+			<p>
+				<label for="word-3">🔵 word:</label>
+				<input
+					type="text"
+					name="word-3"
+					id="word-3"
+					placeholder="lobster"
+					minlength="4"
+					maxlength="9"
+				/>
 			</p>
 			<p>
 				<button type="submit" class="black">Send</button>
