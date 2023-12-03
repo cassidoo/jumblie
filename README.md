@@ -5,3 +5,8 @@
 A jumbled, daily word search game!
 
 [Play Jumblie here!](https://jumblie.com)
+
+## More
+
+- [Puzzle archive](https://jumblie.com/archive)
+- [Suggest a puzzle](https://jumblie.com/suggest)
