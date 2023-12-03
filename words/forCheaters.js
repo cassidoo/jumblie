@@ -241,7 +241,7 @@ let wordList = [
 	},
 	{
 		theme: "film",
-		words: ["reel", "start", "studio", "cinema"],
+		words: ["reel", "movie", "studio", "cinema"],
 	},
 	{
 		theme: "sports",

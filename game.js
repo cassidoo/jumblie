@@ -195,7 +195,7 @@ function handleKeydown(event) {
 }
 
 function submitWord() {
-	submitButton.focus();
+	document.activeElement.blur();
 	const workingWord = workingWordDiv.textContent;
 	const letterButtons = document.querySelectorAll(".letter-button");
 
