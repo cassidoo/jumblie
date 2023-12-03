@@ -370,6 +370,7 @@ function playedToday() {
 
 	if (hasPlayedToday()) {
 		clearAutosave();
+		jShareButton.remove();
 		splash.style.display = "none";
 		container.style.display = "block";
 		scoreString = localStorage.getItem("latestScoreString");
