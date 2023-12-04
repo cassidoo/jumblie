@@ -23,6 +23,7 @@ let scoreString = `Jumblie #${puzzleNumber}\n`;
 const letterMap = {};
 
 (function () {
+	checkDialogSupport();
 	playedToday();
 
 	let autosavedGame = loadAutosave();
@@ -97,6 +98,18 @@ function mixLetters(words) {
 		letters[randomIndex] = temp;
 	}
 	return letters;
+}
+
+function checkDialogSupport() {
+	if (!("showModal" in document.createElement("dialog"))) {
+		let dialogs = document.querySelectorAll("dialog");
+		for (let i = 0; i < dialogs.length; i++) {
+			dialogs[i].remove();
+		}
+
+		document.getElementById("help").remove();
+		document.getElementById("stats").remove();
+	}
 }
 
 function handleButtonClick(event) {
