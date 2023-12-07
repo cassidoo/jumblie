@@ -24,7 +24,46 @@ const letterMap = {};
 
 (function () {
 	playedToday();
+	handleAutosave();
 
+	document.ondblclick = function (e) {
+		e.preventDefault();
+	};
+
+	if (!navigator.share) {
+		jShareButton.remove();
+	}
+
+	startNewGame();
+})();
+
+function startNewGame() {
+	document.addEventListener("keydown", handleKeydown);
+	submitButton.addEventListener("click", submitWord);
+
+	themeDiv.textContent = `"${theme}"`;
+	mobileThemeDiv.textContent = `"${theme}"`;
+	splashThemeDiv.textContent = `"${theme}"`;
+
+	document.getElementById("help").addEventListener("click", () => {
+		document.querySelector("#helpDialog").showModal();
+		fathom.trackEvent("Opened Help");
+	});
+
+	jumbledLetters.forEach((letter, index) => {
+		let letterButton = document.createElement("button");
+		letterButton.textContent = letter;
+		letterButton.classList.add("letter-button");
+		letterButton.classList.add(`letter-${index}`);
+		letterButton.addEventListener("click", handleButtonClick);
+
+		letterGrid.appendChild(letterButton);
+
+		letterMap[letter] = index;
+	});
+}
+
+function handleAutosave() {
 	let autosavedGame = loadAutosave();
 	if (
 		autosavedGame &&
@@ -54,39 +93,7 @@ const letterMap = {};
 			scoreString += `${getEmoji(n)}`;
 		});
 	}
-
-	document.ondblclick = function (e) {
-		e.preventDefault();
-	};
-
-	if (!navigator.share) {
-		jShareButton.remove();
-	}
-
-	document.addEventListener("keydown", handleKeydown);
-	submitButton.addEventListener("click", submitWord);
-
-	themeDiv.textContent = `"${theme}"`;
-	mobileThemeDiv.textContent = `"${theme}"`;
-	splashThemeDiv.textContent = `"${theme}"`;
-
-	document.getElementById("help").addEventListener("click", () => {
-		document.querySelector("#helpDialog").showModal();
-		fathom.trackEvent("Opened Help");
-	});
-
-	jumbledLetters.forEach((letter, index) => {
-		let letterButton = document.createElement("button");
-		letterButton.textContent = letter;
-		letterButton.classList.add("letter-button");
-		letterButton.classList.add(`letter-${index}`);
-		letterButton.addEventListener("click", handleButtonClick);
-
-		letterGrid.appendChild(letterButton);
-
-		letterMap[letter] = index;
-	});
-})();
+}
 
 function mixLetters(words) {
 	let letters = words.join("").split("");
