@@ -305,15 +305,11 @@ let wordList = [
 	},
 	{
 		theme: "vehicles",
-		words: ["tire", "brake", "engine", "dashboard"],
+		words: ["tire", "brake", "engine", "window"],
 	},
 	{
 		theme: "hobbies",
-		words: ["yarn", "quilt", "puzzle", "origami"],
-	},
-	{
-		theme: "crafts",
-		words: ["glue", "bead", "knitting", "crochet"],
+		words: ["yarn", "craft", "puzzle", "origami"],
 	},
 	{
 		theme: "games",
@@ -321,7 +317,7 @@ let wordList = [
 	},
 	{
 		theme: "comedy",
-		words: ["joke", "sketch", "roast", "improvise"],
+		words: ["joke", "roast", "sketch", "improvise"],
 	},
 	{
 		theme: "adventure",
@@ -329,7 +325,7 @@ let wordList = [
 	},
 	{
 		theme: "nature",
-		words: ["tree", "fern", "forest", "meadow"],
+		words: ["tree", "cloud", "forest", "meadow"],
 	},
 	{
 		theme: "psychology",
@@ -341,11 +337,11 @@ let wordList = [
 	},
 	{
 		theme: "photography",
-		words: ["zoom", "focus", "vignette", "landscape"],
+		words: ["zoom", "focus", "camera", "landscape"],
 	},
 	{
 		theme: "horror",
-		words: ["fear", "nightmare", "vampire", "monster"],
+		words: ["fear", "scary", "unknown", "monster"],
 	},
 	{
 		theme: "fantasy",
@@ -357,7 +353,7 @@ let wordList = [
 	},
 	{
 		theme: "mythology",
-		words: ["lore", "fairy", "legend", "olympus"],
+		words: ["lore", "fairy", "legend", "demigod"],
 	},
 	{
 		theme: "exploration",
