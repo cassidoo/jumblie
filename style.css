@@ -228,7 +228,7 @@ header .header-chunk {
 	width: 160px;
 }
 
-header .header-chunk.end {
+header .end {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
