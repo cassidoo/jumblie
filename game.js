@@ -272,19 +272,6 @@ function submitWord() {
 	fathom.trackEvent("Guessed a word");
 }
 
-function getEmoji(index) {
-	switch (index) {
-		case 0:
-			return "🔴";
-		case 1:
-			return "🟠";
-		case 2:
-			return "🟢";
-		case 3:
-			return "🔵";
-	}
-}
-
 function extractNsFromList() {
 	const ns = [];
 	const liElements = wordsList.getElementsByTagName("li");

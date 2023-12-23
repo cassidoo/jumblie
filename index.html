@@ -89,7 +89,7 @@
 			<div class="header-chunk end">
 				<div>
 					<div class="end">
-						<button class="header-icon">
+						<button class="header-icon" id="settings">
 							<img src="./assets/gear.svg" alt="settings" />
 						</button>
 						<button class="black mb2" id="help">Help</button>
@@ -130,6 +130,47 @@
 			</p>
 			<form method="dialog">
 				<button class="black">Got it!</button>
+			</form>
+		</dialog>
+
+		<dialog id="settingsDialog">
+			<h2>Your <span class="brand">Jumblie</span> settings</h2>
+
+			<p>
+				<strong>Difficulty:</strong>
+				<select id="difficultySelect">
+					<option value="easy">Easy</option>
+					<option value="medium">Medium</option>
+					<option value="hard">Hard</option>
+				</select>
+			</p>
+
+			<p>
+				<strong>Theme:</strong>
+				<select id="themeSelect">
+					<option value="light">Light</option>
+					<option value="dark">Dark</option>
+				</select>
+			</p>
+
+			<p>
+				<strong>Letters:</strong>
+				<select id="themeSelect">
+					<option value="lowercase">Lowercase</option>
+					<option value="uppercase">Uppercase</option>
+				</select>
+			</p>
+
+			<p>
+				<strong>Color blindness assist:</strong>
+				<select id="colorBlindSelect">
+					<option value="true">On</option>
+					<option value="false">Off</option>
+				</select>
+			</p>
+
+			<form method="dialog">
+				<button class="black">Let's play!</button>
 			</form>
 		</dialog>
 
@@ -215,6 +256,7 @@
 		</footer>
 
 		<script src="./words/forCheaters.js"></script>
+		<script src="./settings.js"></script>
 		<script src="./dailyWords.js"></script>
 		<script src="./time.js"></script>
 		<script src="./localStorage.js"></script>
