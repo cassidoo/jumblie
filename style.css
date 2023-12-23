@@ -7,6 +7,21 @@ html {
 	line-height: 1.5rem;
 }
 
+html,
+body {
+	background: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+	html.dark,
+	html.dark dialog,
+	html.dark .word-result,
+	html.dark .brand::after,
+	html.dark .emoji {
+		filter: invert(1);
+	}
+}
+
 button {
 	font-size: 20px;
 	font-weight: 700;
@@ -109,7 +124,7 @@ dialog ul li {
 	position: relative;
 }
 
-dialog ul li span {
+dialog ul li span:not(.emoji) {
 	position: absolute;
 	top: 10px;
 	left: 30px;
