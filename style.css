@@ -7,6 +7,21 @@ html {
 	line-height: 1.5rem;
 }
 
+html,
+body {
+	background: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+	html.dark,
+	html.dark dialog,
+	html.dark .word-result,
+	html.dark .brand::after,
+	html.dark .emoji {
+		filter: invert(1);
+	}
+}
+
 button {
 	font-size: 20px;
 	font-weight: 700;
@@ -109,7 +124,7 @@ dialog ul li {
 	position: relative;
 }
 
-dialog ul li span {
+dialog ul li span:not(.emoji) {
 	position: absolute;
 	top: 10px;
 	left: 30px;
@@ -118,6 +133,21 @@ dialog ul li span {
 
 dialog#statsDialog p {
 	margin: 10px 0;
+}
+
+dialog#settingsDialog p {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: bold;
+}
+
+dialog#settingsDialog p select {
+	width: 120px;
+	height: 2em;
+	border: 3px solid #000000;
+	border-radius: 5px;
+	font-weight: bold;
 }
 
 table {
@@ -228,7 +258,7 @@ header .header-chunk {
 	width: 160px;
 }
 
-header .header-chunk.end {
+header .end {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
@@ -346,6 +376,7 @@ header div:first-child {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 	height: 60px;
 	border-radius: 5px;
 	margin: 0 2px 5px;
@@ -378,6 +409,28 @@ header div:first-child {
 	background: #02486e;
 }
 
+.word-result.assist li {
+	text-align: center;
+	height: 75px;
+	line-height: 1.2em;
+}
+
+.word-result.assist .word-0::after {
+	content: "•";
+}
+
+.word-result.assist .word-1::after {
+	content: "••";
+}
+
+.word-result.assist .word-2::after {
+	content: "•••";
+}
+
+.word-result.assist .word-3::after {
+	content: "••••";
+}
+
 .color-0 {
 	color: #d62828;
 }
@@ -405,6 +458,11 @@ header div:first-child {
 
 .hidden {
 	display: none;
+}
+
+.uppercase,
+.uppercase button {
+	text-transform: uppercase;
 }
 
 .shake {
@@ -494,7 +552,7 @@ footer a {
 	font-weight: 700;
 }
 
-form {
+form:not([method="dialog"]) {
 	padding: 20px;
 	background: #efe9e6;
 	border-radius: 20px;

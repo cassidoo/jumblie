@@ -30,6 +30,10 @@ const letterMap = {};
 		e.preventDefault();
 	};
 
+	document.getElementById("settings").addEventListener("click", () => {
+		document.querySelector("#settingsDialog").showModal();
+	});
+
 	if (!navigator.share) {
 		jShareButton.remove();
 	}
@@ -270,19 +274,6 @@ function submitWord() {
 
 	autosave(getGameState());
 	fathom.trackEvent("Guessed a word");
-}
-
-function getEmoji(index) {
-	switch (index) {
-		case 0:
-			return "🔴";
-		case 1:
-			return "🟠";
-		case 2:
-			return "🟢";
-		case 3:
-			return "🔵";
-	}
 }
 
 function extractNsFromList() {
