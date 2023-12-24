@@ -30,6 +30,10 @@ const letterMap = {};
 		e.preventDefault();
 	};
 
+	document.getElementById("settings").addEventListener("click", () => {
+		document.querySelector("#settingsDialog").showModal();
+	});
+
 	if (!navigator.share) {
 		jShareButton.remove();
 	}

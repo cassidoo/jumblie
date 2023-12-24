@@ -2,7 +2,7 @@ const defaultSettings = {
 	difficulty: "hard",
 	theme: "light",
 	letters: "lowercase",
-	colorBlind: false,
+	visibilityAssist: false,
 };
 
 function getEmoji(index) {
