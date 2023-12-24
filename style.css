@@ -376,6 +376,7 @@ header div:first-child {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 	height: 60px;
 	border-radius: 5px;
 	margin: 0 2px 5px;
@@ -408,6 +409,28 @@ header div:first-child {
 	background: #02486e;
 }
 
+.word-result.assist li {
+	text-align: center;
+	height: 75px;
+	line-height: 1.2em;
+}
+
+.word-result.assist .word-0::after {
+	content: "•";
+}
+
+.word-result.assist .word-1::after {
+	content: "••";
+}
+
+.word-result.assist .word-2::after {
+	content: "•••";
+}
+
+.word-result.assist .word-3::after {
+	content: "••••";
+}
+
 .color-0 {
 	color: #d62828;
 }
@@ -435,6 +458,11 @@ header div:first-child {
 
 .hidden {
 	display: none;
+}
+
+.uppercase,
+.uppercase button {
+	text-transform: uppercase;
 }
 
 .shake {
