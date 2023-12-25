@@ -273,7 +273,9 @@ function submitWord() {
 	}
 
 	autosave(getGameState());
-	fathom.trackEvent("Guessed a word");
+	if (guessedWords === 0) {
+		fathom.trackEvent("Guessed a word");
+	}
 }
 
 function extractNsFromList() {
