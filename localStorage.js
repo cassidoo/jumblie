@@ -50,6 +50,7 @@ function updateStreakAndFastestTimes(time, scoreString) {
 	}
 
 	localStorage.setItem("latestScoreString", scoreString);
+	localStorage.setItem("latestTimeString", convertMillisecondsToTime(time));
 }
 
 function hasPlayedToday() {
