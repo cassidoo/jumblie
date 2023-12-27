@@ -23,6 +23,7 @@ let scoreString = `Jumblie #${puzzleNumber}\n`;
 const letterMap = {};
 
 (function () {
+	console.log("🔴🟠🟢🔵 Hey friend, you aren't cheating, are you? 🔴🟠🟢🔵");
 	playedToday();
 	handleAutosave();
 
