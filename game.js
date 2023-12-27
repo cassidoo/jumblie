@@ -365,7 +365,9 @@ function giveUp() {
 function playedToday() {
 	let message = "";
 	if (parseInt(localStorage.getItem("currentStreak")) !== 0) {
-		message = "You found all the words today! ";
+		message = `You found all the words today! You're on a ${localStorage.getItem(
+			"currentStreak"
+		)} day streak. \n`;
 	}
 
 	if (hasPlayedToday()) {
