@@ -24,6 +24,10 @@ let wordList = [
 		words: ["bass", "tempo", "violin", "trombone"],
 	},
 	{
+		theme: "genre",
+		words: ["jazz", "metal", "country", "electronic"],
+	},
+	{
 		theme: "sports",
 		words: ["puck", "track", "lacrosse", "football"],
 	},
