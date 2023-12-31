@@ -307,6 +307,7 @@ function win() {
 	);
 
 	jShareButton.remove();
+	document.getElementById("giveUp").remove();
 	document.getElementById("pause").remove();
 	document.getElementById(
 		"message"
