@@ -350,6 +350,8 @@ header div:first-child {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	max-width: 500px;
+	margin: 0 auto;
 }
 
 .submission {
