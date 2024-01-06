@@ -23,6 +23,7 @@ let scoreString = `Jumblie #${puzzleNumber}\n`;
 const letterMap = {};
 
 (function () {
+	console.log("🔴🟠🟢🔵 Hey friend, you aren't cheating, are you? 🔴🟠🟢🔵");
 	playedToday();
 	handleAutosave();
 
@@ -307,8 +308,11 @@ function win() {
 
 	jShareButton.remove();
 	document.getElementById("pause").remove();
-	document.getElementById("message").textContent =
-		"Yay! You found all the words!";
+	document.getElementById(
+		"message"
+	).textContent = `Yay! You found all the words in ${convertTimeHMS(
+		finalTime
+	)}!`;
 	document.getElementById("submit").remove();
 	document.getElementsByClassName("working-word")[0].remove();
 	document.getElementsByClassName("submission")[0].remove();
@@ -365,7 +369,10 @@ function giveUp() {
 function playedToday() {
 	let message = "";
 	if (parseInt(localStorage.getItem("currentStreak")) !== 0) {
-		message = "You found all the words today! ";
+		let latestTime = localStorage.getItem("latestTimeString");
+		message = `You found all the words today${
+			latestTime ? ` in ${latestTime}` : ""
+		}! You're on a ${localStorage.getItem("currentStreak")} day streak. \n`;
 	}
 
 	if (hasPlayedToday()) {

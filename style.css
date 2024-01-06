@@ -456,6 +456,10 @@ header div:first-child {
 	text-align: center;
 }
 
+#message {
+	white-space: pre-line;
+}
+
 .hidden {
 	display: none;
 }
