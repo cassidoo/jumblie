@@ -429,7 +429,7 @@ let wordList = [
 	},
 	{
 		theme: "dance",
-		words: ["jazz", "salsa", "swing", "toxtrot"],
+		words: ["jazz", "salsa", "swing", "foxtrot"],
 	},
 	{
 		theme: "music",
