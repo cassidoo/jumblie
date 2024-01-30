@@ -473,7 +473,7 @@ let wordList = [
 	},
 	{
 		theme: "space",
-		words: ["star", "void", "galaxy", "oxygen"],
+		words: ["star", "empty", "galaxy", "oxygen"],
 	},
 	{
 		theme: "internet",
@@ -481,11 +481,11 @@ let wordList = [
 	},
 	{
 		theme: "mathematics",
-		words: ["work", "graph", "proof", "subtract"],
+		words: ["data", "graph", "divide", "calculus"],
 	},
 	{
 		theme: "sailing",
-		words: ["ship", "knot", "mast", "starboard"],
+		words: ["ship", "yacht", "voyage", "captain"],
 	},
 	{
 		theme: "aviation",
@@ -493,11 +493,11 @@ let wordList = [
 	},
 	{
 		theme: "money",
-		words: ["cash", "debt", "loan", "finance"],
+		words: ["debt", "value", "profit", "finance"],
 	},
 	{
 		theme: "shopping",
-		words: ["mall", "store", "outlet", "thrift"],
+		words: ["mall", "store", "thrift", "grocery"],
 	},
 	{
 		theme: "economics",
@@ -517,7 +517,7 @@ let wordList = [
 	},
 	{
 		theme: "espionage",
-		words: ["cover", "agent", "secret", "informer"],
+		words: ["hide", "agent", "secret", "informer"],
 	},
 	{
 		theme: "fashion",
