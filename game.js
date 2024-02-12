@@ -156,7 +156,7 @@ function deselectAll() {
 }
 
 function handleKeydown(event) {
-	const key = event.key;
+	let key = event.key;
 	let letterButtons = document.querySelectorAll(".letter-button");
 
 	if (key === "Enter") {
@@ -183,6 +183,8 @@ function handleKeydown(event) {
 			updateWorkingWord();
 		}
 	}
+
+	key = key.toLowerCase();
 
 	if (key.length === 1 && key >= "a" && key <= "z") {
 		const indexes = [];
