@@ -5,7 +5,7 @@ module.exports = {
 		const supabaseUrl = process.env.SUPABASE_URL;
 		const supabaseKey = process.env.SUPABASE_KEY;
 		const tableName = "wordlist";
-		const outputFile = "/list.js";
+		const outputFile = "./list.js";
 
 		try {
 			const response = await fetch(`${supabaseUrl}/rest/v1/${tableName}`, {
