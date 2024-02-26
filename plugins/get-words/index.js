@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 module.exports = {
-	onSuccess: async () => {
+	onPreBuild: async () => {
 		const supabaseUrl = process.env.SUPABASE_URL;
 		const supabaseKey = process.env.SUPABASE_KEY;
 		const tableName = "wordlist";
