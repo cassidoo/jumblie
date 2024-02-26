@@ -5,7 +5,7 @@ module.exports = {
 		const supabaseUrl = process.env.SUPABASE_URL;
 		const supabaseKey = process.env.SUPABASE_KEY;
 		const tableName = "wordlist";
-		const outputFile = "./list.js";
+		const outputFile = "./forCheaters.js";
 
 		try {
 			const response = await fetch(`${supabaseUrl}/rest/v1/${tableName}`, {
@@ -24,7 +24,7 @@ module.exports = {
 			const data = await response.json();
 			// const rows = data.map((row) => row.columnName); // Replace "columnName" with the actual column name in your table
 
-			const fileContent = `const list = ${JSON.stringify(data)};`;
+			const fileContent = `const wordList = ${JSON.stringify(data)};`;
 			fs.writeFileSync(outputFile, fileContent);
 
 			console.log(`Successfully saved word list to ${outputFile}`);
