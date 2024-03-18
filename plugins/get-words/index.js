@@ -22,6 +22,8 @@ module.exports = {
 			}
 
 			const data = await response.json();
+			data = data.sort((a, b) => a.id - b.id);
+
 			const fileContent = `const wordList = ${JSON.stringify(data)};`;
 			fs.writeFileSync(outputFile, fileContent);
 
