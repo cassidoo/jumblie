@@ -19,6 +19,7 @@ function startGame() {
 
 	document.getElementById("splashTitle").textContent = "Paused";
 	document.getElementById("splashTheme").style.display = "none";
+	document.getElementById("splashCredit").style.display = "none";
 
 	document
 		.querySelectorAll(".hidden-start")

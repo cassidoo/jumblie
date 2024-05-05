@@ -1,5 +1,7 @@
 let todaysWords = wordsForTheDay.words;
 let theme = wordsForTheDay.theme;
+let author = wordsForTheDay.author;
+let creditLink = wordsForTheDay.credit_link;
 let jumbledLetters = mixLetters(todaysWords);
 
 let letterGrid = document.getElementById("letterGrid");
@@ -10,6 +12,7 @@ let guessesList = document.getElementById("guesses");
 let themeDiv = document.getElementById("theme");
 let mobileThemeDiv = document.getElementById("mobile");
 let splashThemeDiv = document.getElementById("splashTheme");
+let splashCreditDiv = document.getElementById("splashCredit");
 let shareButton = document.getElementById("share");
 let submitButton = document.getElementById("submit");
 let jShareButton = document.getElementById("jshare");
@@ -49,6 +52,12 @@ function startNewGame() {
 	themeDiv.textContent = `"${theme}"`;
 	mobileThemeDiv.textContent = `"${theme}"`;
 	splashThemeDiv.textContent = `"${theme}"`;
+
+	if (author && !creditLink) {
+		splashCreditDiv.textContent = `by ${author}`;
+	} else if (author && creditLink) {
+		splashCreditDiv.innerHTML = `by <a href="${creditLink}" target="_blank">${author}</a>`;
+	}
 
 	document.getElementById("help").addEventListener("click", () => {
 		document.querySelector("#helpDialog").showModal();

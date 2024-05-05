@@ -314,6 +314,10 @@ header div:first-child {
 	font-weight: 400;
 }
 
+#splash a {
+	color: black;
+}
+
 #container {
 	display: none;
 	margin-top: 10px;
