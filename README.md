@@ -9,4 +9,4 @@ A jumbled, daily word search game!
 ## More
 
 - [Puzzle archive](https://jumblie.com/archive)
-- [Suggest a puzzle](https://jumblie.com/suggest)
+- [The future of Jumblie](https://cassidoo.co/post/future-of-jumblie/)
