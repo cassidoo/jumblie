@@ -1,5 +1,5 @@
 const defaultSettings = {
-	// difficulty: "hard", // TODO
+	difficulty: "hard",
 	theme: "light",
 	letters: "lowercase",
 	visibilityAssist: false,
@@ -44,14 +44,14 @@ function saveSettings() {
 }
 
 function applySettings() {
-	// document.getElementById("difficultySelect").value = settings.difficulty;
+	document.getElementById("difficultySelect").value = settings.difficulty;
 	document.getElementById("themeSelect").value = settings.theme;
 	document.getElementById("letterSelect").value = settings.letters;
 	document.getElementById("visibilitySelect").value = settings.visibilityAssist;
 }
 
 function updateSettings() {
-	// settings.difficulty = document.getElementById("difficultySelect").value;
+	settings.difficulty = document.getElementById("difficultySelect").value;
 	settings.theme = document.getElementById("themeSelect").value;
 	settings.letters = document.getElementById("letterSelect").value;
 	settings.visibilityAssist = document.getElementById("visibilitySelect").value;
